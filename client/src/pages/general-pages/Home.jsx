@@ -49,7 +49,7 @@ const Home = () => {
                     <Link to="/gaming-vendor-login">Gaming Vendor</Link>
                   </li>
                   <li className="option">
-                    <Link to="/merchant-signup">Merchant</Link>
+                    <Link to="/merchant-dashboard">Merchant</Link>
                   </li>
                   <li className="option">
                     <Link>Gamer</Link>

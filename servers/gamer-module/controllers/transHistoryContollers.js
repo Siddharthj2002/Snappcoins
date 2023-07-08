@@ -19,35 +19,62 @@ exports.additem = async (req, res) => {
 
 //const { Types } = require('mongoose');
 
-exports.displayitem = async (req, res) => {
+ // Update the path to your model file
+
+ exports.displayitem = async (req, res) => {
   try {
     const user_id = req.query.user_id;
     const pagenum = req.query.pagenum;
     const size = req.query.size;
+    const searchTerm = req.query.searchTerm;
 
-    console.log("tuid: ", user_id);
+    console.log("user_id:", user_id);
+    console.log("searchTerm:", searchTerm);
 
     const skip = size * (pagenum - 1);
-    const limit = parseInt(size); // Parse size to integer
+    const limit = parseInt(size);
 
-    const count = await transaction.countDocuments({ user_id });
-    const totalTrans = await transaction.find();
-   
-    console.log(count);
+    
+    //const totalTrans = await transaction.find();
 
-    const transactions = await transaction.find({ user_id }).skip(skip).limit(limit);
+    let query = { user_id };
 
-    //console.log("transactions are:");
-    //console.log(transactions);
+    if (searchTerm) {
+      const trimmedSearchTerm = searchTerm.trim();
+      console.log("trimmedSearchTerm: ", trimmedSearchTerm);
+      query.orderStatus = { $regex: trimmedSearchTerm, $options: 'i' };
+
+    }
+
+    const transactions = await transaction.find(query)
+      .skip(skip)
+      .limit(limit);
+    
+    
+    let count
+
+    if(searchTerm){
+
+      count = await transaction.countDocuments(query)
+    }
+    else{
+       count = await transaction.countDocuments({ user_id });
+    }
+
+    console.log(count)
 
     res.status(200).send({
       transactions,
       status: true,
       msg: "Products displayed successfully",
       total_counts: count,
-      total_trans:totalTrans,
+      
+
     });
   } catch (error) {
     res.status(500).json({ error: `Internal server error ${error}` });
   }
 };
+
+
+

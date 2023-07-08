@@ -27,8 +27,10 @@ import GamerDetailsPage from "./pages/gamer-pages/DetailsPage";
 function App() {
   const merchantState = useSelector((state) => state.merchantReducer);
   const isVerify = localStorage.getItem("verify");
-
+  
+  console.log(merchantState)
   const gamerState = useSelector((state) => state.gamerReducer);
+  console.log(gamerState)
 
   return (
     <div className="App">
@@ -54,7 +56,7 @@ function App() {
         <Route
           path="/merchant-dashboard"
           element={
-            merchantState.isLoggedIn ? (
+             merchantState.isLoggedIn ? (
               <MerchantHome />
             ) : (
               <Navigate to="/merchant-login" />
@@ -68,12 +70,16 @@ function App() {
           element={isVerify ? <Verify /> : <Navigate to="/merchant-login" />}
         />
 
-        <Route exact path="/gamer-dashboard" element={<GamerHome />} />
+        {/* <Route exact path="/gamer-dashboard" element={<GamerHome />} /> */}
         <Route path="/gamer-profile" element={<GamerProfile />} />
         {/* <Route
           path="/gamer-dashboard"
           element={gamerState.isLoggedIn ? <GamerHome /> : <Navigate to="/gamer-login" />}
         /> */}
+        <Route
+          path="/gamer-dashboard"
+          element={ <GamerHome />}
+        />
         <Route path="/gamer-signup" element={<GamerSignup />} />
         <Route path="/gamer-login" element={<GamerLogin />} />
         <Route path="/gamer-verify" element={<GamerVerify />} />
