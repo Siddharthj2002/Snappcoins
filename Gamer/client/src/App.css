@@ -1,0 +1,25 @@
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Content Styles */
+.bg-primary{
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-primary-rgb),var(--bs-bg-opacity))!important;
+}
+
+.d-block{
+  display: block!important;
+}
+
+
+
+.content-h2{
+  background-color: #ff0071;
+  border-radius: 0.802rem;
+}
+
+
