@@ -5,10 +5,18 @@ exports.additem = async (req, res) => {
   try {
     const {user_id} = req.query
     const { orderStatus } = req.body;
-    console.log(orderStatus);
-    console.log(user_id);
+    //console.log(orderStatus);
+    //console.log(user_id);
+
+    //generate random transaction id :
+
+    const currentYear = new Date().getFullYear().toString();
+    const randomDigits = Math.floor(Math.random() * 9000) + 1000;
+    const tId = `#ID ${currentYear}${randomDigits}`;
+
+    console.log(tId);
     
-    const createTransaction = await transaction.create( {orderStatus,user_id} );
+    const createTransaction = await transaction.create( {transactionId:tId,orderStatus,user_id} );
   
     res.status(200).send({ msg: "Transaction stored successfully" });
 
