@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import UserProfile from "../../components/gaming-vendor-components/UserProfile.jsx";
 import Hero from "../../components/gaming-vendor-components/Hero.jsx";
 import Header from "../../components/gaming-vendor-components/Header.jsx";
-import Footer from "../../components/gaming-vendor-components/Footer.jsx";
+import Footer from "../../components/general-components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 import TransactionHistory from "../../components/gaming-vendor-components/TransactionHistory.jsx";
+import FullpageLoader from "../../components/general-components/FullpageLoader.jsx";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -199,10 +200,7 @@ const Dashboard = () => {
       <meta name="author" content="Snappcoins" />
       <title>Snappcoins - Ready , Steady, Snapp!</title>
 
-      {/* <div id="preloader">
-        <div data-loader="circle-side" />
-      </div> */}
-
+      <FullpageLoader />
       <Header name={vendor_name} />
 
       <main>

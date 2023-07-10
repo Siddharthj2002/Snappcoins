@@ -49,7 +49,6 @@ class SignUpForm extends React.Component {
         document.getElementById("website").value = "";
 
         setTimeout(function () {
-          // toggleFormFields();
         }, 3500);
       })
       .catch(function (error) {

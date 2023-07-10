@@ -9,7 +9,7 @@ const authRoutes = require('./routes/auth.route');
 const transactionRoutes = require('./routes/transaction.route');
 const profileRoutes = require('./routes/profile.route');
 const merchandiseRoutes = require('./routes/merchandise.route');
-const port = process.env.PORT || 3003
+const port = process.env.PORT || 5001
 
 app.use(express.json())
 app.use(bodyParser.json());

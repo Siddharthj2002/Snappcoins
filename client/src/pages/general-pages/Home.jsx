@@ -1,107 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../../components/general-components/Header";
+import FullpageLoader from "../../components/general-components/FullpageLoader";
+import Footer from "../../components/general-components/Footer";
 const Home = () => {
   return (
     <>
-      {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
-
-      <header className="header clearfix element_to_stick">
-        <div className="layer"></div>
-        <div className="container">
-          <div className="logo">
-            <Link to="/">
-              <img
-                src="assets/img/logo.svg"
-                alt=""
-                width="170"
-                height="35"
-                className="dark"
-              />
-              <img
-                src="assets/img/logo-light-mode.svg"
-                alt=""
-                width="170"
-                height="35"
-                className="light"
-              />
-            </Link>
-          </div>
-
-          <ul className="top_menu">
-            <li>
-              <span className="color_mode_bt">
-                <input id="theme_toggle" type="checkbox" name="theme_toggle" />
-                <label htmlFor="theme_toggle"></label>
-              </span>
-            </li>
-            <li>
-              <Link to="connect" className="btn_access">
-                Connect Snappcoins
-              </Link>
-            </li>
-            <li>
-              <div className="nice-select">
-                <div className="btn_access">
-                  <span className="current">Login</span>
-                </div>
-                <ul className="list">
-                  <li className="option">
-                    <Link to="/gaming-vendor-login">Gaming Vendor</Link>
-                  </li>
-                  <li className="option">
-                    <Link to="/merchant-signup">Merchant</Link>
-                  </li>
-                  <li className="option">
-                    <Link>Gamer</Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <Link to="#0" className="open_close">
-          <i className="bi bi-list"></i>
-          <span>Menu</span>
-        </Link>
-        <nav className="main-menu">
-          <div id="header_menu">
-            <Link to="#0" className="open_close">
-              <i className="bi bi-x"></i>
-            </Link>
-            <Link to="/" className="logo_menu">
-              <img
-                src="https://distil.in/demo/snappcoins/img/logo.svg"
-                data-src="assets/img/logo.svg"
-                alt=""
-                width="120"
-                height="30"
-                className="dark lazy"
-              />
-              <img
-                src="https://distil.in/demo/snappcoins/img/logo-placeholder.png"
-                data-src="assets/img/logo-light-mode.svg"
-                alt=""
-                width="120"
-                height="30"
-                className="light lazy"
-              />
-            </Link>
-          </div>
-          <ul>
-            <li className="submenu">
-              <Link to="/" className="show-submenu">
-                Home
-              </Link>
-            </li>
-            <li className="submenu">
-              <Link to="/catalog" className="show-submenu">
-                Explore
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <FullpageLoader />
+      <Header />
 
       <main>
         <div className="hero_single version_2 jarallax">
@@ -167,8 +73,7 @@ const Home = () => {
               <div className="strip">
                 <figure>
                   <img
-                    src="https://distil.in/demo/snappcoins/img/item-1-placeholder.png"
-                    data-src="assets/img/items/item-1.jpg"
+                    src="assets/img/items/item-1.jpg"
                     className="owl-lazy"
                     alt=""
                     width="533"
@@ -187,8 +92,7 @@ const Home = () => {
                         <i className="bi bi-check"></i>
                         <figure>
                           <img
-                            src="https://distil.in/demo/snappcoins/img/avatar2.jpg"
-                            data-src="assets/img/avatar2.jpg"
+                            src="assets/img/avatar2.jpg"
                             alt=""
                             className="owl-lazy"
                             width="100"
@@ -635,20 +539,17 @@ const Home = () => {
 
             <div
               className="banner mt-5 lazy"
-              style={{ backgroundImage: "url(assets/img/banner_bg.jpg)" }}
-              data-cue="slideInUp"
+              style={{ backgroundImage: "url(assets/img/bp.png)" }}
             >
               <div
                 className="d-flex align-items-center opacity-mask justify-content-between p-5"
-                data-opacity-mask="rgba(0, 0, 0, 0.2)"
+                style={{ opacity: "rgba(0, 0, 0, 0.2)" }}
               >
-                <strong>
-                  <div>
-                    <small>Join Snappcoins</small>
-                    <h3>Become a Partner</h3>
-                    <p>Showcase your games and attract loyal fans!</p>
-                  </div>
-                </strong>
+                <div>
+                  <small>Join Snappcoins</small>
+                  <h3>Become a Partner</h3>
+                  <p>Showcase your games and attract loyal fans!</p>
+                </div>
                 <div>
                   <Link
                     to="/gaming-vendor-login"
@@ -1081,7 +982,7 @@ const Home = () => {
                   </li>
                 </ul>{" "}
                 <p className="add_top_30">
-                  <Link to="/register" className="btn_1">
+                  <Link to="/gamer-signup" className="btn_1">
                     Join Now!
                   </Link>
                 </p>
@@ -1238,150 +1139,7 @@ const Home = () => {
         </div>
       </main>
 
-      <footer>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <h3>Quick Links</h3>
-              <div className="links">
-                <ul>
-                  <li>
-                    <Link to="/catalog">Explore</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
-                  </li>
-                  <li>
-                    <Link to="/register">Register</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <h3>Snappcoins</h3>
-              <div className="links">
-                <ul>
-                  <li>
-                    <Link to="/connect">Connect Wallet</Link>
-                  </li>
-                  <li>
-                    <Link to="/help">Faq</Link>
-                  </li>
-                  <li>
-                    <Link to="/gaming-vendor-login">Become a Partner</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <h3>Resources</h3>
-              <div className="links">
-                <ul>
-                  <li>
-                    <Link to="#">Community</Link>
-                  </li>
-                  <li>
-                    <Link to="#">How it Works</Link>
-                  </li>
-                  <li>
-                    <Link to="#">Latest Products</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <h3>Keep in touch</h3>
-              <div id="newsletter">
-                <div id="message-newsletter"></div>
-                <form method="post" name="newsletter_form" id="newsletter_form">
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      name="email_newsletter"
-                      id="email_newsletter"
-                      className="form-control"
-                      placeholder="Your email"
-                    />
-                    <button type="submit" id="submit-newsletter">
-                      <i className="bi bi-chevron-right"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div className="follow_us">
-                <ul>
-                  <li>
-                    <Link to="#0">
-                      <img
-                        src="assets/img/twitter_icon.svg"
-                        alt=""
-                        className="lazy"
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="#0">
-                      <img
-                        src="assets/img/facebook_icon.svg"
-                        alt=""
-                        className="lazy"
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="#0">
-                      <img
-                        src="assets/img/instagram_icon.svg"
-                        alt=""
-                        className="lazy"
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="#0">
-                      <img
-                        src="assets/img/youtube_icon.svg"
-                        alt=""
-                        className="lazy"
-                      />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-          <div className="row add_bottom_25">
-            <div className="col-md-6">
-              <ul className="footer-selector clearfix">
-                <li>
-                  <div className="styled-select lang-selector">
-                    <select>
-                      <option value="English" selected>
-                        English
-                      </option>
-                      <option value="French">French</option>
-                      <option value="Spanish">Spanish</option>
-                      <option value="Russian">Russian</option>
-                    </select>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-6">
-              <ul className="additional_links">
-                <li>
-                  <a to="#">Terms and conditions</a>
-                </li>
-                <li>© 2023 Snappcoins</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      <div id="toTop"></div>
+      <Footer />
 
       <div id="modal-dialog" className="zoom-anim-dialog mfp-hide">
         <div className="modal_header">

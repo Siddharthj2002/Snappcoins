@@ -30,8 +30,8 @@ const ToggleSide = (props) => {
             params: { id: props.userId, pagenum: currentPage, size: itemsPerPage },
         };
 
-        Promise.all([fetchData(productConfig, { showSuccessToast: false })])
-            .then(([productData]) => {
+        fetchData(productConfig, { showSuccessToast: false })
+            .then((productData) => {
                 setProducts(productData.merchandises);
                 setCount(productData.count);
             })
@@ -49,10 +49,9 @@ const ToggleSide = (props) => {
             params: { id: props.userId, pagenum: currentPage, size: itemsPerPage },
         };
 
-        Promise.all([fetchData(transactionConfig, { showSuccessToast: false })])
-        .then(([transactionData]) => {
+        fetchData(transactionConfig, { showSuccessToast: false })
+        .then((transactionData) => {
             setTransactions(transactionData.transactions);
-            // setCount(TraData.count);
         })
         .catch((err) => {
             console.log(err);
@@ -66,7 +65,7 @@ const ToggleSide = (props) => {
     
     useEffect(() =>{
         fetchTransactions();
-    },[fetchTransactions ])
+    },[fetchTransactions])
 
     const handleMerchantToggle = (e) => {
         setMerchantVisibility(true)
@@ -173,18 +172,37 @@ const ToggleSide = (props) => {
     //     return transaction.product.toLowerCase().includes(searchTerm.toLowerCase());
     // };
 
-    return (<div className="col my-5 mr-0 ">
-        <div className="card text-center tabs_detail bg-dark">
-            <div className="card-header">
-                <ul className="nav nav-tabs card-header-tabs">
+    const handleSearch= () =>{
+        const transactionConfig = {
+            url: '/transactions/transactiondetails',
+            method: 'get',
+            headers: { Authorization: token },
+            params: { id: props.userId,tid:transactionId , pagenum: currentPage, size: itemsPerPage },
+        };
+
+       fetchData(transactionConfig, { showSuccessToast: false })
+        .then((transactionData) => {
+            setTransactions(transactionData.transactions);
+            console.log(transactionData.count)
+            setCount(transactionData.count);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    return (<div className="tabs_detail">
+        <div className="text-center">
+            <div className="card-header"> 
+                <ul className="nav nav-tabs card-header-tabs ">
                     <li className="nav-item active">
-                        <button className={merchantVisibility ? "nav-link  active text-white" : "nav-link text-secondary"} aria-current="true" id="merch" data-bs-toggle="tab" role="tab" onClick={handleMerchantToggle}>Merchandise</button>
+                        <button className="nav-link  active" aria-current="true" id="merch" data-bs-toggle="tab" role="tab" onClick={handleMerchantToggle}>Merchandise</button>
                     </li>
                     <li className="nav-item">
-                        <button className={snapVisibility ? "nav-link active text-white" : "nav-link  text-secondary"} id="redeem" data-bs-toggle="tab" role="tab" onClick={handleRedeemToggle}>Redeem Snappcoins</button>
+                        <button className="nav-link" id="redeem" data-bs-toggle="tab" role="tab" onClick={handleRedeemToggle}>Redeem Snappcoins</button>
                     </li>
                     <li className="nav-item">
-                        <button className={transactionVisibility ? "nav-link active text-white" : "nav-link  text-secondary"} id="tranHis" data-bs-toggle="tab" role="tab" onClick={handleTransactionToggle}>Transaction History</button>
+                        <button className= "nav-link" id="tranHis" data-bs-toggle="tab" role="tab" onClick={handleTransactionToggle}>Transaction History</button>
                         {/* here toggle active button to change the animation */}
                     </li>
                 </ul>
@@ -226,12 +244,12 @@ const ToggleSide = (props) => {
                 {transactionVisibility &&
                     <div id="transactionHistory">
                         <div className="widget search_blog">
-                            <div className="form-group mx-2">
-                                <input type="text" name="search" id="search" class="form-control" placeholder="Transaction Id ..." 
+                            <div className="form-group mx-2 mt-4">
+                                <input type="search" name="search" id="search" class="form-control" placeholder="Transaction Id ..." 
                                 value={transactionId}
                                 onChange={(e) => setTransactionId(e.target.value)}
                                 />
-                                <span><input type="submit" value="Search" /></span>   
+                                <span><input type="submit" value="Search" onClick={handleSearch}/></span>   
                                 {/* <div className="input-group mb-3">
                                     <span className="input-group-text bg-dark text-secondary" style={{ border: "2px solid #36313D", borderColor: "#36313D", borderRight: "none", }} id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />

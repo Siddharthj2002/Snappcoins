@@ -38,10 +38,17 @@ exports.getTransactions = async(req,res) =>{
         var query = {}
         query.skip = size * (pagenum - 1)
         query.limit = size
-        const transactions = await merchantTransaction.find({userid:id} , {} , query)
-        const count = await merchantTransaction.count({userid:id}).then((data) => {
-            return data
-        })
+        let transactions,count;
+        if(tid){
+            transactions = [await merchantTransaction.findById({_id:tid})]
+            count=1;
+        }
+        else{
+            transactions = await merchantTransaction.find({userid:id} , {} , query)
+            count = await merchantTransaction.count({userid:id}).then((data) => {
+                return data
+            })
+        }
         res.status(200).json({transactions, status:true, msg:"Transactions found succesfully", count : count});
     }catch(err){
         console.error(err);

@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import UserProfile from "../../components/gaming-vendor-components/UserProfile.jsx";
 import Hero from "../../components/gaming-vendor-components/Hero";
 import Header from "../../components/gaming-vendor-components/Header.jsx";
-import Footer from "../../components/gaming-vendor-components/Footer.jsx";
+import Footer from "../../components/general-components/Footer.jsx";
+import FullpageLoader from "../../components/general-components/FullpageLoader.jsx";
 
 const Settings = () => {
   const [vendorId, setVendorId] = useState("");
@@ -204,10 +205,7 @@ const Settings = () => {
 
   return (
     <>
-      {/* <div id="preloader">
-        <div data-loader="circle-side"></div>
-      </div> */}
-
+      <FullpageLoader />
       <Header name={vendor_name} />
 
       <main>
@@ -343,7 +341,6 @@ const Settings = () => {
         </div>
       </main>
       <Footer />
-      <div id="toTop"></div>
     </>
   );
 };

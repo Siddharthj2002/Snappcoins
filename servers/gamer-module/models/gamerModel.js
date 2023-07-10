@@ -37,7 +37,7 @@ const gamerSchema = new Schema({
     ,
     walletMoney: {
       type: Number,
-      default: 0
+      default: 1000
     },
     redeemed: {
       type: Number,

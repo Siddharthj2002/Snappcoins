@@ -15,7 +15,7 @@ function HistoryCard(props) {
       }, [props.image]);
 
     return (
-        <div className="row py-3 px-3 mx-2 rounded" style={{border : "1px solid #36313D"}}>
+        <div className="row py-3 px-3 mx-2 rounded form-group border">
             <div className="alignleft mt-4 my-3 mx-1 d-flex justify-content-center col-1">
                 <Link to="#0">
                     <figure>
