@@ -18,7 +18,7 @@ const Dashboard = () => {
   const verifyUser = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3002/gaming-vendor-auth/verify-user",
+        "http://localhost:3001/gaming-vendor-auth/verify-user",
         {
           credentials: "include",
         }
@@ -27,6 +27,17 @@ const Dashboard = () => {
         const data = await response.json();
         if (data.success) {
           setVendorId(data.vendor_id);
+          console.log("Vendor Id: ", data.vendor_id);
+          const response = await fetch(
+            `http://localhost:3001/gaming-vendor-wallet/snappcoin-counter/${data.vendor_id}`
+          );
+          if (response.ok) {
+            const data = await response.json();
+            setVendorName(data.vendor_name);
+            setVendorSnappcoins(data.vendor_coins);
+          } else {
+            throw new Error("Error occurred while fetching vendor details");
+          }
         } else {
           navigate("/gaming-vendor-login");
         }
@@ -40,27 +51,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     verifyUser();
-  });
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:3002/gaming-vendor-wallet/snappcoin-counter/${vendorId}`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setVendorName(data.vendor_name);
-        setVendorSnappcoins(data.vendor_coins);
-      } else {
-        throw new Error("Error occurred while fetching vendor details");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
   });
 
   const handleInputChange = (event) => {
@@ -86,7 +76,7 @@ const Dashboard = () => {
 
     // Fetching new transactionId
     fetch(
-      "http://localhost:3002/gaming-vendor-transactions/get-new-transactionId"
+      "http://localhost:3001/gaming-vendor-transactions/get-new-transactionId"
     )
       .then(function (response) {
         if (response.ok) {
@@ -108,7 +98,7 @@ const Dashboard = () => {
 
         // Making two fetch calls with transactionId in the body
         var fetch1 = fetch(
-          "http://localhost:3002/gaming-vendor-transactions/add-transaction",
+          "http://localhost:3001/gaming-vendor-transactions/add-transaction",
           {
             method: "POST",
             headers: {
@@ -127,7 +117,7 @@ const Dashboard = () => {
           snappcoins_purchased: quantity,
           user_persona: "gaming_vendor",
         };
-        var fetch2 = fetch("http://localhost:3002/snappcoin-bank/update-bank", {
+        var fetch2 = fetch("http://localhost:3001/snappcoin-bank/update-bank", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -140,7 +130,7 @@ const Dashboard = () => {
           vendor_id: vendorId,
           transaction_id: transactionId,
           successUrl: "http://localhost:3000/gaming-vendor-dashboard",
-          failureUrl: `http://localhost:3000/gaming-vendor-dashboard`,
+          // failureUrl: `http://localhost:3000/gaming-vendor-dashboard`,
         };
 
         // Run both fetch calls or none at all
@@ -153,7 +143,7 @@ const Dashboard = () => {
               })
             ) {
               fetch(
-                "http://localhost:3002/gaming-vendor-wallet/create-checkout-session",
+                "http://localhost:3001/gaming-vendor-wallet/create-checkout-session",
                 {
                   method: "POST",
                   headers: {

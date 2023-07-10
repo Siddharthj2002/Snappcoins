@@ -23,6 +23,19 @@ const GamingVendorDetailsSchema = new Schema(
       type: String,
       required: true,
     },
+    vendor_country: {
+      type: String,
+    },
+    vendor_phone: {
+      type: String,
+    },
+    vendor_description: {
+      type: String,
+    },
+    vendor_registration_status: {
+      type: Boolean,
+      default: false,
+    },
     vendor_account_settings: {
       reminders: {
         type: Boolean,

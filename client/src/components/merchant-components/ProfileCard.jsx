@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Loader from './utils/Loader';
-// import { Link } from "react-router-dom";
 
 const ProfileCard = (props) => {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -9,7 +8,7 @@ const ProfileCard = (props) => {
     useEffect(() => {
         setImageSrc(
             props.image
-            ? `${process.env.REACT_APP_URL}/api/profile/img/${props.image}`
+            ? `${process.env.REACT_APP_MERCHANT_MODULE_URL}/api/profile/img/${props.image}`
             : "default-prod.png"
         );
         }, [props.image]);

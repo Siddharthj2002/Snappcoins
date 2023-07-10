@@ -11,7 +11,7 @@ const Dropdown = (props) => {
 
   const handleLogOut = () => {
     try {
-      fetch("http://localhost:3002/gaming-vendor-auth/logout", {
+      fetch("http://localhost:3001/gaming-vendor-auth/logout", {
         credentials: "include",
       })
         .then(function (response) {

@@ -102,6 +102,9 @@ async function getTransactionHistory(req, res, next) {
 
 // Handle Stripe webhook events
 async function handleWebhook(req, res) {
+
+  console.log("Entered the handleWebhook function");
+
   const sig = req.headers["stripe-signature"];
   let event;
 
@@ -126,13 +129,13 @@ async function handleWebhook(req, res) {
   const vendor_id = paymentIntent.metadata.vendor_id;
 
   switch (event.type) {
-    case "payment_intent.canceled":
-      await updateTransactionStatus(transaction_id, "cancelled");
-      break;
+    // case "payment_intent.canceled":
+    //   await updateTransactionStatus(transaction_id, "cancelled");
+    //   break;
 
-    case "payment_intent.payment_failed":
-      await updateTransactionStatus(transaction_id, "failed");
-      break;
+    // case "payment_intent.payment_failed":
+    //   await updateTransactionStatus(transaction_id, "failed");
+    //   break;
 
     case "payment_intent.succeeded":
       await performTransaction(
@@ -146,7 +149,6 @@ async function handleWebhook(req, res) {
     default:
       await updateTransactionStatus(transaction_id, "failed");
   }
-
   res.json({ received: true });
 }
 

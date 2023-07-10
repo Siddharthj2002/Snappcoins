@@ -10,7 +10,7 @@ function ProductCard(props) {
     useEffect(() => {
         setImageSrc(
           props.img
-            ? `${process.env.REACT_APP_URL}/api/merchandise/img/${props.img}`
+            ? `${process.env.REACT_APP_MERCHANT_MODULE_URL}/api/merchandise/img/${props.img}`
             : "default-prod.png"
         );
       }, [props.img]);

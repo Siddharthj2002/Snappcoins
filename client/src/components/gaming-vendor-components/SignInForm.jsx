@@ -17,7 +17,7 @@ const SignInForm = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3002/gaming-vendor-auth/signin",
+        "http://localhost:3001/gaming-vendor-auth/signin",
         {
           method: "POST",
           headers: {

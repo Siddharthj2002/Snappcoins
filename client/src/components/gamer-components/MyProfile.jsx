@@ -267,23 +267,6 @@ const EditProfile = () => {
               />
             </div>
           </div>
-
-          <center>
-            <button
-              type="button"
-              className="content-h2 text-white btn-lg"
-              onClick={handleUpdate}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                margin: "0 10px",
-                backgroundColor: isHovered ? "#3dbf8c" : "#ff0071",
-                transition: "background-color 0.3s ease",
-              }}
-            >
-              Save Changes
-            </button>
-          </center>
         </div>
       )}
     </div>

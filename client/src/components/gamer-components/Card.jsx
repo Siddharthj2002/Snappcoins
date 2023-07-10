@@ -13,7 +13,7 @@ const Card = (props) => {
     setImageSrc(
       profile.image
         ? `${process.env.REACT_APP_GAMER_MODULE_URL}/api/profile/img/${profile.image}`
-        : "assets/img/default-prod.png"
+        : "assets/img/avatar-user.jpg"
     );
   }, [profile.image]);
 
@@ -37,8 +37,8 @@ const Card = (props) => {
               className={`img-account  mb-4 ${imageLoaded ? "" : "hidden"}`}
               src={imageSrc}
               alt=""
-              height="74.375rem"
-              width="84.375rem"
+              height="78.375rem"
+              width="83.375rem"
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageLoaded(false)}
             />
@@ -59,30 +59,18 @@ const Card = (props) => {
         </span>
       </h3>
       <p>Member since {localDate}</p>
-      {/* <!-- <p>
-            <a href="#0" className="btn_1 full-width mb-2">Follow</a>
-            <a href="#0" className="btn_1 full-width outline">Send a message</a>
-        </p>--> */}
       <hr />
 
       <ul>
         <li>
-          Redeemed <span className="badge bg-success">120</span>
+          Redeemed <span className="badge bg-success"></span>
         </li>
         <li>
-          Pending Orders <span className="badge bg-warning">56</span>
+          Pending Orders <span className="badge bg-warning">{props.pending}</span>
         </li>
       </ul>
 
       <small>Member since {localDate}</small>
-      {/* <!--  <div className="follow_buttons">
-            <ul>
-                <li><a href="#0"><i className="bi bi-instagram"></i></a></li>
-                <li><a href="#0"><i className="bi bi-facebook"></i></a></li>
-                <li><a href="#0"><i className="bi bi-twitter"></i></a></li>
-                <li><a href="#0"><i className="bi bi-youtube"></i></a></li>
-            </ul>
-        </div>--> */}
     </div>
   );
 };

@@ -17,6 +17,7 @@ export default function Home() {
   const [merchant, setMerchant] = useState([]);
   const [snaphistory, setSnaphistory] = useState([]);
   const [transactions, setTransactions] = useState([]);
+  const [pendingOrders,setPendingOrders]=useState(0)
 
   const token = localStorage.getItem("token");
   const [fetchData, { loading }] = useFetch();
@@ -238,6 +239,7 @@ export default function Home() {
         const response = await fetchTransactions();
         if (response) {
           setTransactions(response.transactions);
+          setPendingOrders(response.pendingOrders)
         }
       } catch (error) {
         console.log(error);
@@ -339,7 +341,7 @@ export default function Home() {
 
   return (
     <>
-      <FullpageLoader />
+      {loading && <FullpageLoader />}
       <Header />
 
       <div className="banner">
@@ -359,6 +361,7 @@ export default function Home() {
                 gamerName={user.userName}
                 walletMoney={user.walletMoney}
                 memberSince={user.joiningTime}
+                pending={pendingOrders}
               />
             )}
           </div>
@@ -469,34 +472,44 @@ export default function Home() {
                     <div class="row mt-lg-5 mt-3">
                       <aside class="col-lg-12">
                         <div class="widget search_blog">
-                          <div class="form-group">
+                        <div class="form-group d-flex">
                             <input
-                              type="text"
-                              name="search"
-                              id="search"
-                              class="form-control"
-                              placeholder="Terms..."
+                              class="form-control me-2 w-100 bg-white text-dark"
+                              type="search"
+                              placeholder="Search here..."
+                              aria-label="Search"
+                              value={searchKeyword}
+                              onChange={(e) => setSearchKeyword(e.target.value)}
                             />
-                            <span>
-                              <input type="submit" value="Search" />
-                            </span>
+                            <button
+                              class="btn text-white bg-danger inside"
+                              onClick={handleSearch}
+                            >
+                              Search
+                            </button>
                           </div>
                         </div>
-
-                        <div className="row history_list">
-                          {snaphistory.map((transaction, index) => (
-                            <div
-                              className="col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                              key={index}
-                            >
-                              <MyItems
-                                tdate={transaction.transactionDate}
-                                tId={transaction.transactionId}
-                                status={transaction.orderStatus}
-                              />
-                            </div>
-                          ))}
+                        <div class="widget">
+                          {transactions.length > 0 ? (
+                            <div className="row history_list">
+                            {snaphistory.map((transaction, index) => (
+                              <div
+                                className="col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                                key={index}
+                              >
+                                <MyItems
+                                  tdate={transaction.transactionDate}
+                                  tId={transaction.transactionId}
+                                  status={transaction.orderStatus}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                          ) : (
+                            <center><h3>No Snaps Collected</h3></center> 
+                          )}
                         </div>
+                       
                         <div className="text-center">
                           <div className="pagination_fg mb-4">
                             {pages2.map((i) => {
@@ -562,7 +575,7 @@ export default function Home() {
                               ))}
                             </div>
                           ) : (
-                            ""
+                            <center><h3>No Snaps Redeemed</h3></center> 
                           )}
                         </div>
                         <div class="text-center">

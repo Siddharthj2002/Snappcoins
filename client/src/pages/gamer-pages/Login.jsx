@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch-gamer";
 
 import PreLoader from "../../components/gamer-components/utils/PreLoader";
-import FullpageLoader from "../../components/general-components/FullpageLoader";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,7 +28,9 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("verify", true);
 
-        navigate("/gamer-verify", { state: { id: data.id, email: data.email } });
+        navigate("/gamer-verify", {
+          state: { id: data.id, email: data.email },
+        });
       })
       .catch((error) => {
         // Handle the error here, e.g., log the error or display an error message
@@ -39,7 +40,6 @@ const Login = () => {
 
   return (
     <>
-      <FullpageLoader />
       <div id="login_bg" className="bg-login">
         {loading ? (
           <PreLoader />
@@ -116,7 +116,7 @@ const Login = () => {
                 <div className="text-center add_top_10">
                   New to <a href="/">SnappCoins?</a>{" "}
                   <strong>
-                    <a href="/signup">Sign up!</a>
+                    <a href="/gamer-signup">Sign up!</a>
                   </strong>
                 </div>
               </form>

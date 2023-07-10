@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../components/merchant-components/Header'
-import Footer from '../../components/merchant-components/Footer'
+import Footer from '../../components/general-components/Footer'
 import EditProfile from '../../components/merchant-components/EditProfile'
 import ProfileNav from '../../components/merchant-components/ProfileNav'
 

@@ -25,7 +25,7 @@ const Settings = () => {
   const verifyUser = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3002/gaming-vendor-auth/verify-user",
+        "http://localhost:3001/gaming-vendor-auth/verify-user",
         {
           credentials: "include",
         }
@@ -52,7 +52,7 @@ const Settings = () => {
   const getDetails = async () => {
     try {
       await fetch(
-        `http://localhost:3002/gaming-vendor-wallet/snappcoin-counter/${vendorId}`
+        `http://localhost:3001/gaming-vendor-wallet/snappcoin-counter/${vendorId}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -73,7 +73,7 @@ const Settings = () => {
   const getSettings = async () => {
     try {
       await fetch(
-        `http://localhost:3002/gaming-vendor/get-account-settings/${vendorId}`
+        `http://localhost:3001/gaming-vendor/get-account-settings/${vendorId}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -115,7 +115,7 @@ const Settings = () => {
     const updateSettings = async () => {
       try {
         await fetch(
-          `http://localhost:3002/gaming-vendor/set-account-settings`,
+          `http://localhost:3001/gaming-vendor/set-account-settings`,
           {
             method: "POST",
             headers: {
@@ -149,7 +149,7 @@ const Settings = () => {
   const handlePasswordUpdate = async () => {
     const formData = { vendorId, password, password_confirmation };
     try {
-      await fetch(`http://localhost:3002/gaming-vendor/change-password`, {
+      await fetch(`http://localhost:3001/gaming-vendor/change-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

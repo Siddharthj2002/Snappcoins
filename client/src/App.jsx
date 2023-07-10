@@ -5,6 +5,8 @@ import Home from "./pages/general-pages/Home";
 import Connect from "./pages/general-pages/Connect-wallet";
 import Catalog from "./pages/general-pages/Catalog";
 
+import AdminDashboard from "./pages/admin-pages/dashboard";
+
 import Login from "./pages/gaming-vendor-pages/Partner-login";
 import Dashbaord from "./pages/gaming-vendor-pages/Partner-home";
 import Settings from "./pages/gaming-vendor-pages/Partner-settings";
@@ -22,6 +24,7 @@ import GamerSignup from "./pages/gamer-pages/Signup";
 import GamerLogin from "./pages/gamer-pages/Login";
 import GamerVerify from "./pages/gamer-pages/Verify";
 import GamerDetailsPage from "./pages/gamer-pages/DetailsPage";
+import GamerMyprofile from './pages/gamer-pages/myProfile';
 
 function App() {
   const merchantState = useSelector((state) => state.merchantReducer);
@@ -36,12 +39,12 @@ function App() {
         <Route path="/connect" element={<Connect />} />
         <Route path="/catalog" element={<Catalog />} />
 
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
 
         <Route path="/gaming-vendor-login" element={<Login />} />
         <Route path="/gaming-vendor-dashboard" element={<Dashbaord />} />
         <Route path="/gaming-vendor-settings" element={<Settings />} />
         <Route path="/gaming-vendor-register" element={<Register />} />
-
 
         <Route
           path="/merchant-profile"
@@ -67,20 +70,29 @@ function App() {
         <Route path="/merchant-login" element={<MerchantLogin />} />
         <Route
           path="/merchant-verify"
-          element={isVerify ? <MerchantVerify /> : <Navigate to="/merchant-login" />}
+          element={
+            isVerify ? <MerchantVerify /> : <Navigate to="/merchant-login" />
+          }
         />
-
 
         <Route exact path="/gamer-dashboard" element={<GamerHome />} />
         <Route path="/gamer-profile" element={<GamerProfile />} />
         <Route
           path="/gamer-dashboard"
-          element={gamerState.isLoggedIn ? <GamerHome /> : <Navigate to="/gamer-login" />}
+          element={
+            gamerState.isLoggedIn ? (
+              <GamerHome />
+            ) : (
+              <Navigate to="/gamer-login" />
+            )
+          }
         />
         <Route path="/gamer-signup" element={<GamerSignup />} />
         <Route path="/gamer-login" element={<GamerLogin />} />
         <Route path="/gamer-verify" element={<GamerVerify />} />
-        <Route path="/gamer-details" element={<GamerDetailsPage />} />
+        <Route path="/details-page" element={<GamerDetailsPage />} />
+        <Route path="/profile" element={<GamerProfile />} />
+        <Route path="/myprofile" element={<GamerMyprofile />} />
       </Routes>
     </div>
   );

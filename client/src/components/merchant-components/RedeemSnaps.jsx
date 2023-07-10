@@ -18,7 +18,7 @@ const RedeemSnaps = () => {
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Collect Amount</label>
+                    <label>Amount Collected</label>
                     <div class="box_bid">
                         <div class="item_meta"> 
                             <h3 class=""><strong>$ 1000</strong></h3>

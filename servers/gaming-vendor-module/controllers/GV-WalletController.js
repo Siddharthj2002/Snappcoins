@@ -18,7 +18,7 @@ async function getSnappcoinCounter(req, res, next) {
     // Extract the vendor's name and the number of Snappcoins
     const { vendor_name, vendor_coins } = vendorWallet;
 
-    // Return the vendor's name and the number of coins they possess
+    // Return the vendor's name and the number of coins they have
     res.json({ vendor_name, vendor_coins });
   } catch (error) {
     res.status(500).json({ error: "Failed to retrieve vendor" });

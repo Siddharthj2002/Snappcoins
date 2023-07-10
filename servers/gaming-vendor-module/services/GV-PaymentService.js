@@ -6,6 +6,9 @@ export async function performTransaction(
   transaction_id,
   transaction_status
 ) {
+
+  console.log("Entered the performTransacation function");
+
   const uri = process.env.ATLAS_URI;
   const client = new MongoClient(uri);
 

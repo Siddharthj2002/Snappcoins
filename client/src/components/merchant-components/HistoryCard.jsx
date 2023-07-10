@@ -9,7 +9,7 @@ function HistoryCard(props) {
     useEffect(() => {
         setImageSrc(
           props.image
-            ? `${process.env.REACT_APP_URL}/api/merchandise/img/${props.image}`
+            ? `${process.env.REACT_APP_MERCHANT_MODULE_URL}/api/merchandise/img/${props.image}`
             : "default-prod.png"
         );
       }, [props.image]);

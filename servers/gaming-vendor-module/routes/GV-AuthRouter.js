@@ -4,6 +4,7 @@ import {
   signUp,
   signIn,
   verifyUser,
+  registerUser,
   logout,
 } from "../controllers/GV-AuthController.js";
 
@@ -56,6 +57,9 @@ router.post(
 
 // Vendor sign-in
 router.post("/signin", signIn);
+
+// Register user
+router.post("/register-user", registerUser);
 
 // Verify user
 router.get("/verify-user", verifyUser);

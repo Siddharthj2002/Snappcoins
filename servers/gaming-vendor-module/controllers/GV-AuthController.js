@@ -1,6 +1,6 @@
 import { GamingVendorDetailsModel } from "../models/GV-DetailModel.js";
 import { GamingVendorWalletModel } from "../models/GV-WalletModel.js";
-import { check, body, validationResult } from "express-validator";
+import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
 import sendmail from "../services/GV-EmailService.js";
 import jwt from "jsonwebtoken";
@@ -88,6 +88,7 @@ async function signUp(req, res, next) {
     res.status(200).json({
       success: true,
       message: "Sign-Up successful. Check email for log-in details!",
+      vendor_id,
     });
   } catch (error) {
     next(error);
@@ -140,10 +141,52 @@ async function verifyUser(req, res, next) {
     try {
       const decoded = jwt.verify(token, "our-jsonwebtoken-secret-key");
       const vendor_id = decoded.vendor_id;
+
+      const vendor = await GamingVendorDetailsModel.findOne({ vendor_id });
+
+      if (!vendor) {
+        return res.json({ Message: "Vendor not found" });
+      }
+
+      if (!vendor.vendor_registration_status) {
+        return res.json({ Message: "Vendor registration is not completed" });
+      }
+
       return res.json({ success: true, vendor_id });
     } catch (err) {
       return res.json({ Message: "Authentication Error!" });
     }
+  }
+}
+
+// Register user
+async function registerUser(req, res, next) {
+  const { vendorId, vendor_country, vendor_description, vendor_phone } =
+    req.body;
+
+  try {
+    const vendor = await GamingVendorDetailsModel.findOneAndUpdate(
+      { vendor_id: vendorId },
+      {
+        vendor_country,
+        vendor_description,
+        vendor_phone,
+        vendor_registration_status: true,
+      },
+      { new: true }
+    );
+
+    if (!vendor) {
+      console.error("Vendor not found");
+      return res.status(404).json({ message: "Vendor not found" });
+    }
+
+    return res
+      .status(200)
+      .json({ message: "Vendor registered successfully. Login using VendorId and Password" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
@@ -155,4 +198,4 @@ async function logout(req, res) {
     .json({ success: true, message: "Vendor log-out successful" });
 }
 
-export { signUp, signIn, verifyUser, logout };
+export { signUp, signIn, verifyUser, registerUser, logout };

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import useFetch from "../../hooks/useFetch-gamer";
 import { useLocation, useNavigate } from "react-router-dom";
 import PreLoader from "../../components/gamer-components/utils/PreLoader";
-import FullpageLoader from "../../components/general-components/FullpageLoader";
 
 const Verify = () => {
   const [fetchData, { loading }] = useFetch();
@@ -64,7 +63,6 @@ const Verify = () => {
 
   return (
     <>
-      <FullpageLoader />
       <div>
         {loading ? (
           <PreLoader />

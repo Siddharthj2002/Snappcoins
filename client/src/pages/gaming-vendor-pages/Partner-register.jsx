@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/general-components/Header.jsx";
 import Footer from "../../components/general-components/Footer.jsx";
 import LoginForm from "../../components/gaming-vendor-components/LoginForm.jsx";
@@ -7,43 +7,59 @@ import FullpageLoader from "../../components/general-components/FullpageLoader.j
 import Hero from "../../components/gaming-vendor-components/Hero.jsx";
 
 const Register = () => {
-  const [companyName, setCompanyName] = useState("");
+  //   const [companyName, setCompanyName] = useState("");
   const [country, setCountry] = useState("U.S.A");
   const [description, setDescription] = useState("");
-  const [email, setEmail] = useState("");
+  //   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [agreeTerms, setAgreeTerms] = useState(true);
 
-  const handleRegister = () => {
-    // Make API call with the captured data
-    const data = {
-      companyName,
-      country,
-      description,
-      email,
-      phoneNumber,
-      agreeTerms,
-    };
+  const location = useLocation();
+  const { companyName, email, vendorId } = location.state || {};
 
-    console.log(data);
+  const navigate = useNavigate();
 
-    // // Example API call using fetch:
-    // fetch("http://localhost:3002/gaming-vendor-auth/register-user", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((result) => {
-    //     // Handle the API response here
-    //     console.log(result);
-    //   })
-    //   .catch((error) => {
-    //     // Handle any errors here
-    //     console.error(error);
-    //   });
+  const toastFunction = (message) => {
+    const x = document.getElementById("toast");
+    x.textContent = message;
+    x.className = "show";
+    setTimeout(() => {
+      x.className = x.className.replace("show", "");
+    }, 3000);
+  };
+
+  const handleRegister = async () => {
+    if (agreeTerms) {
+      const data = {
+        vendorId,
+        vendor_country: country,
+        vendor_description: description,
+        vendor_phone: phoneNumber,
+      };
+
+      const response = await fetch(
+        "http://localhost:3001/gaming-vendor-auth/register-user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        toastFunction(data.message);
+        setTimeout(() => {
+          navigate("/gaming-vendor-login");
+        }, 3000);
+      } else {
+        const data = await response.json();
+        throw new Error(data.message);
+      }
+    } else {
+        toastFunction("Please agree with the Terms and Conditions");
+    }
   };
 
   return (
@@ -75,9 +91,11 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control"
+                      id="name_register"
                       placeholder="Enter Full Company Name"
                       value={companyName}
-                      onChange={(e) => setCompanyName(e.target.value)}
+                      readOnly={true}
+                      style={{ background: "transparent", color: "gray" }}
                     />
                   </div>
                 </div>
@@ -115,9 +133,11 @@ const Register = () => {
                     <input
                       type="text"
                       className="form-control"
+                      id="email_register"
                       placeholder=""
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      readOnly={true}
+                      style={{ background: "transparent", color: "gray" }}
                     />
                   </div>
                 </div>
@@ -153,7 +173,6 @@ const Register = () => {
                   </div>
                 </div>
               </div>
-              {/* /row */}
               <button
                 className="btn_1"
                 style={{ marginLeft: "50.4rem" }}
@@ -161,6 +180,12 @@ const Register = () => {
               >
                 Register Me!
               </button>
+              <div id="error-message" className="error-message" />
+              <div id="toast" className="center">
+                <div className="checkicon">
+                  <i className="fas fa-check-square" />
+                </div>
+              </div>
             </div>
             <div className="col-lg-3">
               <div className="main_profile edit_section">
