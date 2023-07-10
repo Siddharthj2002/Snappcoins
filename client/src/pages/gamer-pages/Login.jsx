@@ -29,7 +29,7 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("verify", true);
 
-        navigate("/verify", { state: { id: data.id, email: data.email } });
+        navigate("/gamer-verify", { state: { id: data.id, email: data.email } });
       })
       .catch((error) => {
         // Handle the error here, e.g., log the error or display an error message
@@ -49,13 +49,12 @@ const Login = () => {
               <figure>
                 <a href="/" className="logo_account">
                   <img
-                    src="https://distil.in/demo/snappcoins/img/logo.svg"
+                    src="assets/img/logo.svg"
                     alt=""
                     width="140"
                     height="35"
                     className="dark"
                   />
-                  {/* <img src="https://distil.in/demo/snappcoins/img/logo-light-mode.svg" alt="" width="140" height="35" className="light" /> */}
                 </a>
               </figure>
               <form>

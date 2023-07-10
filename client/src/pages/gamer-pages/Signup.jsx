@@ -6,16 +6,10 @@ import FullpageLoader from "../../components/general-components/FullpageLoader";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    dob: "",
-    companyName: "",
+    userName: "",
     email: "",
     password: "",
-    phoneNumber: "",
-    gender: "",
-    role: "",
-    address: "",
+    confirmpassword: "",
   });
 
   const [fetchData, { loading }] = useFetch();
@@ -36,7 +30,7 @@ const Signup = () => {
         console.log(data.userId);
         // localStorage.setItem('tempuid',data.userId)
         localStorage.setItem("verify", true);
-        navigate("/verify", { state: { id: data.userId, email: data.email } });
+        navigate("/gamer-verify", { state: { id: data.userId, email: data.email } });
       })
       .catch((error) => {
         // Handle the error here, e.g., log the error or display an error message
@@ -56,7 +50,7 @@ const Signup = () => {
               <figure>
                 <a href="/" class="logo_account">
                   <img
-                    src="https://distil.in/demo/snappcoins/img/logo.svg"
+                    src="assets/img/logo.svg"
                     alt=""
                     width="140"
                     height="35"
@@ -81,13 +75,11 @@ const Signup = () => {
                     class="form-control"
                     type="text"
                     placeholder="User Name"
-                    name="firstName"
-                    value={formData.firstName}
+                    name="userName"
+                    value={formData.userName}
                     autoComplete="off"
                     onChange={handleChange}
-                    autoFocus
                   />
-                  <i class="icon_pencil-edit"></i>
                 </div>
                 <div class="form-group mb-3">
                   <input

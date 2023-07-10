@@ -8,6 +8,7 @@ import Catalog from "./pages/general-pages/Catalog";
 import Login from "./pages/gaming-vendor-pages/Partner-login";
 import Dashbaord from "./pages/gaming-vendor-pages/Partner-home";
 import Settings from "./pages/gaming-vendor-pages/Partner-settings";
+import Register from "./pages/gaming-vendor-pages/Partner-register";
 
 import MerchantProfile from "./pages/merchant-pages/Profile";
 import MerchantHome from "./pages/merchant-pages/Home";
@@ -39,6 +40,7 @@ function App() {
         <Route path="/gaming-vendor-login" element={<Login />} />
         <Route path="/gaming-vendor-dashboard" element={<Dashbaord />} />
         <Route path="/gaming-vendor-settings" element={<Settings />} />
+        <Route path="/gaming-vendor-register" element={<Register />} />
 
 
         <Route

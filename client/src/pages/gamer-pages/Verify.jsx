@@ -52,11 +52,11 @@ const Verify = () => {
     fetchData(config)
       .then(() => {
         localStorage.removeItem("verify");
-        token ? navigate("/") : navigate("/login");
+        token ? navigate("/gamer-dashboard") : navigate("/gamer-login");
       })
       .catch((err) => {
         console.log(err);
-        navigate("/verify", { state: { id, email } });
+        navigate("/gamer-verify", { state: { id, email } });
       });
     setOtp("");
     setVisibility(false);

@@ -6411,7 +6411,7 @@ Author URI:
   }
   ul.top_menu:before {
     position: absolute;
-    top: 6px;
+    top: 2px;
     left: 0;
     display: inline-block;
     width: 1px;
@@ -8414,7 +8414,7 @@ Author URI:
     transform: rotate(180deg);
   }
   
-  /* ------ 5.4 Forms styles ------ */ 
+  /* ------ 5.4 Forms styles ------ */
   .nice-select {
     -webkit-tap-highlight-color: transparent;
     background-color: #211D23;

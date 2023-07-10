@@ -69,3 +69,21 @@
   display: flex;
   align-items: center;
 }
+
+/* .wide {
+  display: block;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #949494;
+  background-color: transparent;
+  background-clip: padding-box;
+  height: 2.8rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.3rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+} */
