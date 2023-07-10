@@ -18,7 +18,7 @@ const transHistorySchema = new Schema({
    transactionId:{
      
      type:String,
-     require:true
+     default: "ID 20220325"
      
    },
    orderStatus:{

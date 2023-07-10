@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useEffect, useCallback }   from "react";
 
 function MyItems(props) {
   console.log("myitems props are:", props);
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
+
+  useEffect(() => {
+    // Assuming you receive the image URL from props
+    setImageSrc(
+      props.img
+        ? `${process.env.REACT_APP_GAMER_MODULE_URL}/api/merchant/img/${props.img}`
+        : "assets/img/avatar1.jpg"
+    );
+    setImageLoaded(false);
+  }, [props.img]);
+
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -36,15 +50,13 @@ function MyItems(props) {
           style={{ margin: "1rem" }}
         >
           <figure>
-            <img
-              src="avatar1.jpg"
-              data-src="img/avatar1.jpg"
-              alt=""
-              className="lazy loaded"
-              width="100"
-              height="100"
-              data-was-processed="true"
-            />
+          <img src={imageSrc} alt="" 
+            data-src="img/items/item-4.jpg"
+            className={`lazy ${imageLoaded ? "" : "hidden"}`}
+            height="90px"
+            width="100%"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageLoaded(false)} />
           </figure>
         </div>
         <div>

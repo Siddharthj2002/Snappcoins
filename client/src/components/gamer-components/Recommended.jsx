@@ -20,7 +20,7 @@ export default function Recommended(props) {
     setImageSrc(
       props.img
         ? `${process.env.REACT_APP_GAMER_MODULE_URL}/api/merchant/img/${props.img}`
-        : "default-prod.png"
+        : "assets/img/default-prod.png"
     );
     setImageLoaded(false);
   }, [props.img]);
@@ -171,7 +171,7 @@ export default function Recommended(props) {
               <i className="bi bi-check"></i>
               <figure>
                 <img
-                  src="avatar1.jpg"
+                  src="assets/img/avatar1.jpg"
                   data-src="img/avatar2.jpg"
                   alt=""
                   className="lazy loaded"

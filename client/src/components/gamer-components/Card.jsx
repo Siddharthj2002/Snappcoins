@@ -13,7 +13,7 @@ const Card = (props) => {
     setImageSrc(
       profile.image
         ? `${process.env.REACT_APP_GAMER_MODULE_URL}/api/profile/img/${profile.image}`
-        : "assets/img/default-prod.png"
+        : "assets/img/avatar-user.jpg"
     );
   }, [profile.image]);
 
@@ -37,8 +37,8 @@ const Card = (props) => {
               className={`img-account  mb-4 ${imageLoaded ? "" : "hidden"}`}
               src={imageSrc}
               alt=""
-              height="74.375rem"
-              width="84.375rem"
+              height="78.375rem"
+              width="83.375rem"
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageLoaded(false)}
             />
@@ -67,10 +67,10 @@ const Card = (props) => {
 
       <ul>
         <li>
-          Redeemed <span className="badge bg-success">120</span>
+          Redeemed <span className="badge bg-success"></span>
         </li>
         <li>
-          Pending Orders <span className="badge bg-warning">56</span>
+          Pending Orders <span className="badge bg-warning">{props.pending}</span>
         </li>
       </ul>
 

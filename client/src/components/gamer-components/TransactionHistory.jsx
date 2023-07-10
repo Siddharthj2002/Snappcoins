@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState, useEffect, useCallback }  from "react";
 
 export default function TransactionHistory(props) {
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
+
+  useEffect(() => {
+    // Assuming you receive the image URL from props
+    setImageSrc(
+      props.img
+        ? `${process.env.REACT_APP_GAMER_MODULE_URL}/api/merchant/img/${props.img}`
+        : "assets/img/default-prod.png"
+    );
+    setImageLoaded(false);
+  }, [props.img]);
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = {
@@ -19,7 +33,14 @@ export default function TransactionHistory(props) {
       <li>
         <div class="alignleft">
           <a href="#0">
-            <img src="avatar1.jpg" alt="" />
+            <img src={imageSrc} alt="" 
+            data-src="img/items/item-4.jpg"
+            className={`lazy ${imageLoaded ? "" : "hidden"}`}
+            
+            height="50px"
+            width="100%"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageLoaded(false)} />
           </a>
         </div>
         <small>{formatDate(props.tdate)}</small>

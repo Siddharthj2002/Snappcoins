@@ -30,6 +30,7 @@ const Signup = () => {
         console.log(data.userId);
         // localStorage.setItem('tempuid',data.userId)
         localStorage.setItem("verify", true);
+        localStorage.removeItem('token')
         navigate("/gamer-verify", { state: { id: data.userId, email: data.email } });
       })
       .catch((error) => {

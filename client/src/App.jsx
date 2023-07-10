@@ -16,12 +16,13 @@ import MerchantSignup from "./pages/merchant-pages/Signup";
 import MerchantLogin from "./pages/merchant-pages/Login";
 import MerchantVerify from "./pages/merchant-pages/Verify";
 
-import GamerHome from "./pages/gamer-pages/Home";
-import GamerProfile from "./pages/gamer-pages/profile";
+import GamerHome from "./pages/gamer-pages/gamer-dashboard";
+import GamerProfile from "./pages/gamer-pages/editprofile";
 import GamerSignup from "./pages/gamer-pages/Signup";
 import GamerLogin from "./pages/gamer-pages/Login";
-import GamerVerify from "./pages/gamer-pages/Verify";
+import GamerVerify from "./pages/gamer-pages/gamer-verify";
 import GamerDetailsPage from "./pages/gamer-pages/DetailsPage";
+import GamerMyprofile from './pages/gamer-pages/myprofile';
 
 function App() {
   const merchantState = useSelector((state) => state.merchantReducer);
@@ -80,7 +81,9 @@ function App() {
         <Route path="/gamer-signup" element={<GamerSignup />} />
         <Route path="/gamer-login" element={<GamerLogin />} />
         <Route path="/gamer-verify" element={<GamerVerify />} />
-        <Route path="/gamer-details" element={<GamerDetailsPage />} />
+        <Route path="/details-page" element={<GamerDetailsPage />} />
+        <Route path='/profile' element={<GamerProfile />} />
+        <Route path='/myprofile' element={<GamerMyprofile />} />
       </Routes>
     </div>
   );

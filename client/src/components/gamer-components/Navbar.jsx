@@ -126,7 +126,7 @@ const Header = () => {
                     </div>
                     <ul>
                       <li>
-                        <Link to="#">
+                        <Link to="/myprofile">
                           <i className="bi bi-person"></i>My profile
                         </Link>
                       </li>
@@ -187,7 +187,7 @@ const Header = () => {
             </div>
             <ul>
               <li className="submenu">
-                <a href="/" className="show-submenu">
+                <a href="/gamer-dashboard" className="show-submenu">
                   Home
                 </a>
               </li>

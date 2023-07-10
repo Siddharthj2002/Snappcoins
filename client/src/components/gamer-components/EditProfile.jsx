@@ -102,7 +102,7 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="edit-profile" style={{ background: "black" }}>
+    <div className="edit-profile" >
       {loading ? (
         <PreLoader />
       ) : (
