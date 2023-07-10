@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 exports.sendVerificationEmail= async(req,res)=>{
   try{
     const otp = otpGenerator.generate(6,{lowerCaseAlphabets:false,upperCaseAlphabets:false,specialChars:false})
-    console.log(otp)
+    console.log("otp",otp)
     const {email} = await User.findById(req.query.uid)
     const mailOptions={
       from: process.env.AUTH_EMAIL,

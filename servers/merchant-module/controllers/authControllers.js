@@ -31,12 +31,12 @@ exports.sendVerificationEmail= async(req,res)=>{
 
 //testing
 
-    // transporter.sendMail(mailOptions,(err, info) => {
-    //   if(err){
-    //     console.log('err',err);
-    //     console.log(info.messageId);
-    //   }  
-    // });
+    transporter.sendMail(mailOptions,(err, info) => {
+      if(err){
+        console.log('err',err);
+        console.log(info.messageId);
+      }  
+    });
 
     res.status(201).send({ msg: "Otp Sent"});
     

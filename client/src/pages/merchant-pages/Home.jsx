@@ -3,11 +3,13 @@ import Footer from '../../components/merchant-components/Footer'
 import Content from '../../components/merchant-components/Content'
 import Header from '../../components/merchant-components/Header'
 import SessionExp from '../../components/merchant-components/SessionExp'
+import FullpageLoader from '../../components/general-components/FullpageLoader'
 
 const Home = () => {
   
   return (
     <div>
+      <FullpageLoader />
       <Header />
       <Content />
       <Footer />

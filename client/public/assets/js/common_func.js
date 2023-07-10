@@ -110,7 +110,7 @@
 		} else {
 		    $("body").removeClass("light-theme");
 		    $("body").addClass("dark-theme");
-		    document.getElementById("theme_toggle").checked = false;
+		    // document.getElementById("theme_toggle").checked = false;
 		}
 		//add toggle
 		$("#theme_toggle").on("click", function() {

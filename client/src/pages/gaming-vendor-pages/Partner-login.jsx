@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/custom.css";
-import Footer from "../../components/gaming-vendor-components/Footer.jsx";
+import Header from "../../components/general-components/Header.jsx";
+import Footer from "../../components/general-components/Footer.jsx";
 import LoginForm from "../../components/gaming-vendor-components/LoginForm.jsx";
+import FullpageLoader from "../../components/general-components/FullpageLoader.jsx";
 
 const Login = () => {
   return (
@@ -13,100 +14,9 @@ const Login = () => {
       <meta name="author" content="Snappcoins" />
       <title>Snappcoins - Ready , Steady, Snapp!</title>
 
-      {/* <div id="preloader">
-        <div data-loader="circle-side" />
-      </div> */}
+      <FullpageLoader />
+      <Header />
 
-      <header className="header clearfix element_to_stick">
-        <div className="layer" />
-
-        <div className="container">
-          <div className="logo">
-            <Link to="/">
-              <img
-                src="assets/img/logo.svg"
-                alt=""
-                width={170}
-                height={35}
-                className="dark"
-              />
-              <img
-                src="assets/img/logo-light-mode.svg"
-                alt=""
-                width={170}
-                height={35}
-                className="light"
-              />
-            </Link>
-          </div>
-          <ul className="top_menu">
-            <li>
-              <span className="color_mode_bt">
-                <input id="theme_toggle" type="checkbox" name="theme_toggle" />
-                <label htmlFor="theme_toggle" />
-              </span>
-            </li>
-            <li>
-              <Link to="/connect" className="btn_access">
-                Connect Snappcoins
-              </Link>
-            </li>
-            <li>
-              <div className="nice-select">
-                <div className="btn_access">
-                  <span className="current">Login</span>
-                </div>
-                <ul className="list">
-                  <li className="option">
-                    <Link to="/gaming-vendor-login">Gaming Vendor</Link>
-                  </li>
-                  <li className="option">
-                    <Link to="/merchant-signup">Merchant</Link>
-                  </li>
-                  <li className="option">
-                    <Link>Gamer</Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-          {/* /top_menu */}
-          <a href="#0" className="open_close">
-            <i className="bi bi-list" />
-            <span>Menu</span>
-          </a>
-          <nav className="main-menu">
-            <div id="header_menu">
-              <a href="#0" className="open_close">
-                <i className="bi bi-x" />
-              </a>
-              <a href="index.html">
-                <img
-                  src="assets/img/logo-placeholder.png"
-                  data-src="assets/img/logo.svg"
-                  width={120}
-                  height={30}
-                  alt=""
-                  className="lazy"
-                />
-              </a>
-            </div>
-            <ul>
-              <li className="submenu">
-                <Link to="/" className="show-submenu">
-                  Home
-                </Link>
-              </li>
-              <li className="submenu">
-                <Link to="/catalog" className="show-submenu">
-                  Explore
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      {/* /header */}
       <main>
         <div
           className="hero_single inner_pages"
@@ -125,13 +35,11 @@ const Login = () => {
                   </p>
                 </div>
               </div>
-              {/* /row */}
             </div>
           </div>
           <div className="wave hero"></div>
         </div>
 
-        {/* /hero_single */}
         <div className="container margin_60_90">
           <div className="main_title center">
             <span>
@@ -245,12 +153,9 @@ const Login = () => {
               </div>
             </div>
           </div>
-          {/* /container */}
         </div>
       </main>
-      {/* /main */}
       <Footer />
-      <div id="toTop" />
     </>
   );
 };

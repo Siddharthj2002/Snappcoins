@@ -6411,7 +6411,7 @@ Author URI:
   }
   ul.top_menu:before {
     position: absolute;
-    top: 2px;
+    top: 6px;
     left: 0;
     display: inline-block;
     width: 1px;
@@ -8414,31 +8414,32 @@ Author URI:
     transform: rotate(180deg);
   }
   
-  /* ------ 5.4 Forms styles ------ */
+  /* ------ 5.4 Forms styles ------ */ 
   .nice-select {
     -webkit-tap-highlight-color: transparent;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2px solid var(--border-color-1);
-    /* box-sizing: border-box; */
+    background-color: #211D23;
+    border-radius: 2px;
+    border: none;
+    box-sizing: border-box;
     clear: both;
     cursor: pointer;
-    /* display: block; */
-    /* float: left; */
+    display: block;
+    float: left;
     font-family: inherit;
-    font-size: 10px !important;
-    font-weight: normal;
-    height: 10px !important;
-    line-height: 10px !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    height: 31px !important;
+    line-height: 30px !important;
     outline: none;
-    /* padding-left: 18px; */
-    /* padding-right: 33px; */
-    /* position: relative; */
+    padding-left: 18px;
+    padding-right: 33px;
+    position: relative;
     text-align: left !important;
     transition: all 0.2s ease-in-out;
-    /* user-select: none; */
-    /* white-space: nowrap; */
-    /* width: auto; */
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+    color: #FFF;
   }
   .nice-select:active, .nice-select.open, .nice-select:focus {
     border-color: var(--border-color-1);

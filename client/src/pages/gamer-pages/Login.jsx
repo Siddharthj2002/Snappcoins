@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch-gamer";
-import FacebookIcon from "@mui/icons-material/Facebook";
-// import GoogleIcon from "@mui/icons-material/Google";
-import login_style from "../../styles/login.css";
+
 import PreLoader from "../../components/gamer-components/utils/PreLoader";
+import FullpageLoader from "../../components/general-components/FullpageLoader";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,6 +27,8 @@ const Login = () => {
     fetchData(config)
       .then((data) => {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("verify", true);
+
         navigate("/verify", { state: { id: data.id, email: data.email } });
       })
       .catch((error) => {
@@ -38,102 +39,93 @@ const Login = () => {
 
   return (
     <>
-      {loading ? (
-        <PreLoader />
-      ) : (
-        <div className="box">
-          <div className="form-wrapper">
-            <form className="p-5">
+      <FullpageLoader />
+      <div id="login_bg" className="bg-login">
+        {loading ? (
+          <PreLoader />
+        ) : (
+          <div id="login">
+            <aside>
               <figure>
                 <a href="/" className="logo_account">
                   <img
-                    ssrc="assets/img/logo.svg"
+                    src="https://distil.in/demo/snappcoins/img/logo.svg"
                     alt=""
                     width="140"
                     height="35"
-                    className="light"
+                    className="dark"
                   />
+                  {/* <img src="https://distil.in/demo/snappcoins/img/logo-light-mode.svg" alt="" width="140" height="35" className="light" /> */}
                 </a>
               </figure>
-              <div className="access_social">
-                <a href="#0" className="social_bt facebook">
-                  <span className="icon-wrapper">
-                    <FacebookIcon
-                      sx={{ fontSize: 30 }}
-                      className="square-icon"
-                    />
-                  </span>
-                  <span className="button-text">Register with Facebook</span>
+              <form>
+                <div className="access_social">
+                  <a href="#0" className="social_bt facebook">
+                    Login with Facebook
+                  </a>
+                  <a href="#0" className="social_bt google">
+                    Login with Google
+                  </a>
+                </div>
+                <div className="divider">
+                  <span>Or</span>
+                </div>
+                <div className="form-group mb-3">
+                  <input
+                    type="email"
+                    className="form-control"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    id="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                    autoComplete="on"
+                  />
+                </div>
+                <div className="clearfix add_bottom_30">
+                  <div className="checkboxes float-start">
+                    <label className="container_check">
+                      Remember me
+                      <input type="checkbox" />
+                      <span className="checkmark"></span>
+                    </label>
+                  </div>
+                  <div className="float-end">
+                    <Link id="forgot" to="#">
+                      Forgot Password?
+                    </Link>
+                  </div>
+                </div>
+                <a
+                  href="user-dashboard.html"
+                  className="btn_1 full-width"
+                  onClick={handleSubmit}
+                >
+                  Login
                 </a>
-
-                <a href="#0" className="social_bt google">
-                  <span className="icon-wrapper">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                      alt="Google"
-                      className="google-icon"
-                    />
-                  </span>
-                  <span className="button-text">Register with Google</span>
-                </a>
-              </div>
-              <div className="divider">
-                <span>Or</span>
-              </div>
-              <div className="mb-3">
-                <input
-                  type="email"
-                  className="form-control grey-border"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  autoComplete="off"
-                  autoFocus
-                  onChange={handleChange}
-                  style={{ color: "black" }}
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  className="form-control grey-border"
-                  name="password"
-                  placeholder="Password"
-                  value={formData.password}
-                  id="exampleInputPassword1"
-                  autoComplete="off"
-                  onChange={handleChange}
-                  style={{ color: "black" }}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn button btn-lg grey-border"
-                onClick={handleSubmit}
-              >
-                Login
-              </button>
-
-              <div className="pt-4">
-                <Link to="/gamer-signup" className="navigate">
-                  <center>New To SnapCoins? Sign up!</center>
-                </Link>
-              </div>
-            </form>
+                <div className="text-center add_top_10">
+                  New to <a href="/">SnappCoins?</a>{" "}
+                  <strong>
+                    <a href="/signup">Sign up!</a>
+                  </strong>
+                </div>
+              </form>
+              <div className="copy">© 2023 Snappcoins</div>
+            </aside>
           </div>
-          <div className="image-wrapper">
-            <img
-              src="assets/img/bg.png"
-              alt="loading"
-              width={100 + "%"}
-              height={740 + "px"}
-              style={{ marginTop: "-80rem" }}
-            />
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

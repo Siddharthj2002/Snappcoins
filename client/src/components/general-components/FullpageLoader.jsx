@@ -6,5 +6,4 @@ const FullpageLoader = function () {
     )
 }
 
-
 export default FullpageLoader

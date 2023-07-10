@@ -1,134 +1,153 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Footer({ darkMode }) {
+const Footer = () => {
   return (
-    <div>
-        <div className='margin my-4'>
-
-    <footer className={`footer ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="row">
-        <div className="col-6 col-md-2 mb-3">
-          <h5>Quick Links</h5>
-          <ul className="nav flex-column">
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Explore
-              </a>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Login
-              </a>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Register
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="col-6 col-md-2 mb-3">
-          <h5>Snappcoins</h5>
-          <ul className="nav flex-column">
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Connect Wallet
-              </a>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                FAQ
-              </a>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Become a Partner
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="col-6 col-md-2 mb-3">
-          <h5>Resources</h5>
-          <ul className="nav flex-column">
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Community
-              </a>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                How it works
-              </a>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="/" className="nav-link p-0 text-muted">
-                Latest Products
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="col-md-4 offset-md-1 mb-3">
-          <form>
-            <h6>Keep in touch</h6>
-            <div className="d-flex flex-column flex-sm-row w- gap-2">
-              <input
-                id="newsletter1"
-                type="text"
-                className="form-control"
-                placeholder="Your Email"
-                fdprocessedid="fphmjs"
-              />
-              <button className="btn btn-primary" type="button" fdprocessedid="9hghoh">
-                {'>'}
-              </button>
+    <footer>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 col-md-6 col-sm-6">
+            <h3>Quick Links</h3>
+            <div className="links">
+              <ul>
+                <li>
+                  <a href="catalog.html">Explore</a>
+                </li>
+                <li>
+                  <a href="login.html">Login</a>
+                </li>
+                <li>
+                  <a href="register.html">Register</a>
+                </li>
+              </ul>
             </div>
-          </form>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6">
+            <h3>Snappcoins</h3>
+            <div className="links">
+              <ul>
+                <li>
+                  <a href="connect-wallet.html">Connect Wallet</a>
+                </li>
+                <li>
+                  <a href="help.html">Faq</a>
+                </li>
+                <li>
+                  <a href="become-partner.html">Become a Partner</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6">
+            <h3>Resources</h3>
+            <div className="links">
+              <ul>
+                <li>
+                  <Link href="#">Community</Link>
+                </li>
+                <li>
+                  <Link href="#">How it Works</Link>
+                </li>
+                <li>
+                  <Link href="#">Latest Products</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6">
+            <h3>Keep in touch</h3>
+            <div id="newsletter">
+              <div id="message-newsletter"></div>
+              <form method="post" name="newsletter_form" id="newsletter_form">
+                <div className="form-group">
+                  <input
+                    type="email"
+                    name="email_newsletter"
+                    id="email_newsletter"
+                    className="form-control"
+                    placeholder="Your email"
+                  />
+                  <button type="submit" id="submit-newsletter">
+                    <i className="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className="follow_us">
+              <ul>
+                <li>
+                  <Link to="#0">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                      data-src="img/twitter_icon.svg"
+                      alt=""
+                      className="lazy"
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#0">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                      data-src="img/facebook_icon.svg"
+                      alt=""
+                      className="lazy"
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#0">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                      data-src="img/instagram_icon.svg"
+                      alt=""
+                      className="lazy"
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#0">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                      data-src="img/youtube_icon.svg"
+                      alt=""
+                      className="lazy"
+                    />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center py-4 my-4 border-top">
-        <ul className="list-unstyled d-flex">
-          <li className="me-3">
-            <a className="link-dark" href="/">
-              <svg className="bi" width="24" height="24">
-                <use xlinkHref="/twitter"></use>
-              </svg>
-            </a>
-          </li>
-          <li className="me-3">
-            <a className="link-dark" href="/">
-              <svg className="bi" width="24" height="24">
-                <use xlinkHref="/instagram"></use>
-              </svg>
-            </a>
-          </li>
-          <li className="me-3">
-            <a className="link-dark" href="/">
-              <svg className="bi" width="24" height="24">
-                <use xlinkHref="/facebook"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-        <ul className="list-unstyled d-flex ms-auto">
-          <li className="me-3">
-            <a className="link-dark" href="/terms">
-              Terms &amp; Conditions
-            </a>
-          </li>
-          <li>
-            <span className="mx-3">|</span>
-          </li>
-          <li>
-            <p className="mb-0">&copy; 2023 Snappcoins</p>
-          </li>
-        </ul>
+        {/* <!-- /row--> */}
+        <hr />
+        <div className="row add_bottom_25">
+          <div className="col-md-6">
+            <ul className="footer-selector clearfix">
+              <li>
+                <div className="styled-select lang-selector">
+                  <select>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Russian">Russian</option>
+                  </select>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="col-md-6">
+            <ul className="additional_links">
+              <li>
+                <Link to="#">Terms and conditions</Link>
+              </li>
+              <li>© 2023 Snappcoins</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
-        </div>
-    </div>
   );
-}
+};
+
+export default Footer;
