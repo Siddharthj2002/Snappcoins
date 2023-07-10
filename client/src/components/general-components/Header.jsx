@@ -56,7 +56,7 @@ function Header() {
                   <Link to="/gamer-login">Gamer</Link>
                 </li>
                 <li className="option">
-                  <Link to="/admin-login">Admin</Link>
+                  <Link to="/admin-dashboard">Admin</Link>
                 </li>
               </ul>
             </div>

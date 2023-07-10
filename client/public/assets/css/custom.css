@@ -87,3 +87,23 @@
   border-radius: 0.3rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.bg-voilet {
+  background-color: #FF0071;
+}
+
+input {
+  caret-color: #FF0071;
+}
+
+li {
+  text-decoration-style: none;
+}
+
+.br-none {
+  border-radius: 0px;
+}
+
+.lt:hover {
+  color: #FF0071;
+}
