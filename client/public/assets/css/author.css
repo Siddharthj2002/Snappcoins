@@ -166,8 +166,7 @@
 .main_profile.edit_section ul li a {
   color: var(--heading-color);
 }
-.main_profile.edit_section ul li a:hover,
-.main_profile.edit_section ul li a.active {
+.main_profile.edit_section ul li a:hover, .main_profile.edit_section ul li a.active {
   color: var(--color-3);
 }
 .main_profile.edit_section ul li a i {

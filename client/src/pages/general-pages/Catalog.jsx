@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Product from "../../components/general-components/Product";
 import axios from "axios";
-import Header from "../../components/general-components/Header";
 import Filter from "../../components/general-components/Filter";
 import PageComp from "../../components/general-components/PageComp";
 import FilterUp from "../../components/general-components/FilterUp";
 import Loader from "../../components/general-components/Loader";
+import HeaderCat from "../../components/general-components/HeaderCat"
 
 const Catalog = (props) => {
   const { state } = useLocation();
@@ -39,7 +39,7 @@ const Catalog = (props) => {
         };
 
         const response_prod = await axios.get(
-          "http://localhost:3002/api/merchandise/getall",
+          "http://localhost:3001/api/merchandise/getall",
           { params }
         );
 
@@ -114,7 +114,7 @@ const Catalog = (props) => {
   //search functionality
   return (
     <>
-      <Header />
+      <HeaderCat />
       <main>
         <FilterUp>
           <div className="search_bar_list">

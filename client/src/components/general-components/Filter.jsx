@@ -11,29 +11,29 @@ function Filter({ children }) {
     }
 
     return (
-        <aside class="col-lg-3" id="sidebar_fixed">
-            <div class="filter_col">
-                <div class="inner_bt"><a href="#" class="open_filters"><i class="bi bi-x"></i></a></div>
-                <div class="filter_type">
-                    <h4><a href="#filter_1" data-bs-toggle="collapse" class="opened" onClick={(e) => {
-                        e.target.classList.toggle("closed")
+        <aside className="col-lg-3" id="sidebar_fixed">
+            <div className="filter_col">
+                <div className="inner_bt"><a href="#" className="open_filters"><i className="bi bi-x"></i></a></div>
+                <div className="filter_type">
+                    <h4><a href="#filter_1" data-bs-toggle="collapse" className="opened" onClick={(e) => {
                         e.target.classList.toggle("opened")
+                        e.target.classList.toggle("closed")
                     }}>Categories</a></h4>
-                    <div class="collapse show" id="filter_1">
+                    <div className="collapse show" id="filter_1">
                         <ul>
                             {children[0]}
                         </ul>
                     </div>
                 </div>
-                <div class="filter_type">
-                    <h4><a href="#filter_3" data-bs-toggle="collapse" class="opened" onClick={(e) => {
+                <div className="filter_type">
+                    <h4><a href="#filter_3" data-bs-toggle="collapse" className="opened" onClick={(e) => {
                         e.target.classList.toggle("opened")
                         e.target.classList.toggle("closed")
                     }}>Snapps</a></h4>
-                   {children[1]}
+                    {children[1]}
                 </div>
-                {/* <div class="buttons">
-                    <a href="#0" class="btn_1 full-width outline">Filter</a>
+                {/* <div className="buttons">
+                    <a href="#0" className="btn_1 full-width outline">Filter</a>
                 </div> */}
             </div>
         </aside>

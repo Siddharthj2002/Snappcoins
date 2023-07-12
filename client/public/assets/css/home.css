@@ -109,16 +109,13 @@
 }
 
 /* Home carousel */
-#carousel-home,
-#carousel-home-2 {
+#carousel-home, #carousel-home-2 {
   position: relative;
 }
-#carousel-home .static,
-#carousel-home-2 .static {
+#carousel-home .static, #carousel-home-2 .static {
   position: static;
 }
-#carousel-home .cover,
-#carousel-home-2 .cover {
+#carousel-home .cover, #carousel-home-2 .cover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -130,19 +127,16 @@
   z-index: 2;
   opacity: 1 !important;
 }
-#carousel-home .owl-carousel .owl-slide,
-#carousel-home-2 .owl-carousel .owl-slide {
+#carousel-home .owl-carousel .owl-slide, #carousel-home-2 .owl-carousel .owl-slide {
   height: 660px;
   position: relative;
 }
 @media (max-width: 767px) {
-  #carousel-home .owl-carousel .owl-slide,
-  #carousel-home-2 .owl-carousel .owl-slide {
+  #carousel-home .owl-carousel .owl-slide, #carousel-home-2 .owl-carousel .owl-slide {
     height: 480px;
   }
 }
-#carousel-home .owl-carousel .owl-slide-animated,
-#carousel-home-2 .owl-carousel .owl-slide-animated {
+#carousel-home .owl-carousel .owl-slide-animated, #carousel-home-2 .owl-carousel .owl-slide-animated {
   -webkit-transform: translateX(20px);
   -moz-transform: translateX(20px);
   -ms-transform: translateX(20px);
@@ -156,8 +150,7 @@
   -ms-transition: all 0.05s ease;
   transition: all 0.05s ease;
 }
-#carousel-home .owl-carousel .owl-slide-animated.is-transitioned,
-#carousel-home-2 .owl-carousel .owl-slide-animated.is-transitioned {
+#carousel-home .owl-carousel .owl-slide-animated.is-transitioned, #carousel-home-2 .owl-carousel .owl-slide-animated.is-transitioned {
   -webkit-transform: none;
   -moz-transform: none;
   -ms-transform: none;
@@ -171,29 +164,25 @@
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-#carousel-home .owl-carousel .owl-slide-title.is-transitioned,
-#carousel-home-2 .owl-carousel .owl-slide-title.is-transitioned {
+#carousel-home .owl-carousel .owl-slide-title.is-transitioned, #carousel-home-2 .owl-carousel .owl-slide-title.is-transitioned {
   transition-delay: 0.2s;
   -webkit-transition-delay: 0.2s;
   -moz-transition-delay: 0.2s;
   -o-transition-delay: 0.2s;
 }
-#carousel-home .owl-carousel .owl-slide-subtitle.is-transitioned,
-#carousel-home-2 .owl-carousel .owl-slide-subtitle.is-transitioned {
+#carousel-home .owl-carousel .owl-slide-subtitle.is-transitioned, #carousel-home-2 .owl-carousel .owl-slide-subtitle.is-transitioned {
   transition-delay: 0.35s;
   -webkit-transition-delay: 0.35s;
   -moz-transition-delay: 0.35s;
   -o-transition-delay: 0.35s;
 }
-#carousel-home .owl-carousel .owl-slide-cta.is-transitioned,
-#carousel-home-2 .owl-carousel .owl-slide-cta.is-transitioned {
+#carousel-home .owl-carousel .owl-slide-cta.is-transitioned, #carousel-home-2 .owl-carousel .owl-slide-cta.is-transitioned {
   transition-delay: 0.5s;
   -webkit-transition-delay: 0.5s;
   -moz-transition-delay: 0.5s;
   -o-transition-delay: 0.5s;
 }
-#carousel-home .owl-carousel .owl-dots,
-#carousel-home-2 .owl-carousel .owl-dots {
+#carousel-home .owl-carousel .owl-dots, #carousel-home-2 .owl-carousel .owl-dots {
   margin: 0;
   bottom: 30px;
   width: 100%;
@@ -209,8 +198,7 @@
   font-size: 21px;
   font-size: 1.3125rem;
 }
-.slide-text h2,
-.slide-text h3 {
+.slide-text h2, .slide-text h3 {
   color: #fff;
   line-height: 1;
   font-size: 46px;
@@ -219,8 +207,7 @@
   font-weight: 600;
 }
 @media (max-width: 767px) {
-  .slide-text h2,
-  .slide-text h3 {
+  .slide-text h2, .slide-text h3 {
     font-size: 36px;
     font-size: 2.25rem;
   }
@@ -272,8 +259,7 @@
     margin-top: 0;
   }
 }
-#carousel-home-2 .owl-carousel .owl-slide .slide-text h2,
-#carousel-home-2 .owl-carousel .owl-slide .slide-text h3 {
+#carousel-home-2 .owl-carousel .owl-slide .slide-text h2, #carousel-home-2 .owl-carousel .owl-slide .slide-text h3 {
   font-size: 42px;
   font-size: 2.625rem;
 }

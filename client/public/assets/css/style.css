@@ -90,10 +90,7 @@ Author URI:
 /*============================================================================================*/
 @font-face {
   font-family: "bootstrap-icons";
-  src: url("bs-icon-font/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d")
-      format("woff2"),
-    url("bs-icon-font/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d")
-      format("woff");
+  src: url("bs-icon-font/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d") format("woff2"), url("bs-icon-font/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d") format("woff");
   font-display: swap;
 }
 [class^="bi-"]::before,
@@ -105,7 +102,7 @@ Author URI:
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  vertical-align: -0.125em;
+  vertical-align: -.125em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -5614,10 +5611,10 @@ Author URI:
   left: 50%;
   margin-left: -25px;
   margin-top: -25px;
-  -webkit-animation: circle infinite 0.5s linear;
-  -moz-animation: circle infinite 0.5s linear;
-  -o-animation: circle infinite 0.5s linear;
-  animation: circle infinite 0.5s linear;
+  -webkit-animation: circle infinite .95s linear;
+  -moz-animation: circle infinite .95s linear;
+  -o-animation: circle infinite .95s linear;
+  animation: circle infinite .95s linear;
   border: 2px solid #ff0071;
   border-top-color: rgba(0, 0, 0, 0.2);
   border-right-color: rgba(0, 0, 0, 0.2);
@@ -5694,26 +5691,26 @@ Author URI:
 }
 /*-------- 3.2 Typography --------*/
 /* rem reference
-  10px = 0.625rem
-  12px = 0.75rem
-  14px = 0.875rem
-  16px = 1rem (base)
-  18px = 1.125rem
-  20px = 1.25rem
-  24px = 1.5rem
-  30px = 1.875rem
-  32px = 2rem
-  */
+10px = 0.625rem
+12px = 0.75rem
+14px = 0.875rem
+16px = 1rem (base)
+18px = 1.125rem
+20px = 1.25rem
+24px = 1.5rem
+30px = 1.875rem
+32px = 2rem
+*/
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
   background-color: var(--body-background);
   font-size: 14px;
   font-size: 0.875rem;
-  font-family: "Albert Sans", sans-serif;
+  font-family: 'Albert Sans', sans-serif;
   color: var(--body-text-color);
 }
 
@@ -5759,8 +5756,7 @@ a {
   transition: all 0.3s ease-in-out;
   outline: none;
 }
-a:hover,
-a:focus {
+a:hover, a:focus {
   color: var(--heading-color);
   text-decoration: none;
   outline: none;
@@ -5874,7 +5870,7 @@ a.btn_1.gray:hover,
   transition: all 0.3s ease-in-out;
 }
 .color_mode_bt input + label:before {
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   content: "\f1d2";
 }
 .color_mode_bt input + label:hover {
@@ -5885,7 +5881,7 @@ a.btn_1.gray:hover,
 }
 
 .color_mode_bt input[type="checkbox"]:checked + label:before {
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   content: "\f497";
 }
 
@@ -6140,7 +6136,7 @@ header a.open_close:hover {
 }
 
 /* All styles for screen size over 992px
-  ================================================== */
+================================================== */
 @media only screen and (min-width: 992px) {
   .main-menu {
     width: auto;
@@ -6175,8 +6171,7 @@ header a.open_close:hover {
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.175);
     transform: scale(0.4);
     transform-origin: 10% top;
-    transition: 0.15s linear, 0.1s opacity cubic-bezier(0.39, 0.575, 0.565, 1),
-      0.15s transform cubic-bezier(0.1, 1.26, 0.83, 1);
+    transition: 0.15s linear, 0.1s opacity cubic-bezier(0.39, 0.575, 0.565, 1), 0.15s transform cubic-bezier(0.1, 1.26, 0.83, 1);
     border-radius: var(--border-radius-small);
     opacity: 0;
     -moz-transition: all 0.2s ease;
@@ -6243,7 +6238,7 @@ header a.open_close:hover {
     opacity: 1;
   }
   .main-menu ul ul li.third-level > a:after {
-    font-family: "bootstrap-icons";
+    font-family: 'bootstrap-icons';
     content: "\f285";
     float: right;
     font-size: 16px;
@@ -6334,7 +6329,7 @@ header a.open_close:hover {
   }
 
   .main-menu ul > li.submenu > a:after {
-    font-family: "bootstrap-icons";
+    font-family: 'bootstrap-icons';
     content: "\f282";
     font-size: 16px;
     font-size: 1rem;
@@ -6441,8 +6436,7 @@ ul.top_menu > li:first-child {
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  ul.top_menu > li:last-child,
-  ul.top_menu > li:nth-child(2) {
+  ul.top_menu > li:last-child, ul.top_menu > li:nth-child(2) {
     display: none;
   }
 }
@@ -6496,7 +6490,7 @@ ul.top_menu > li a.btn_access:hover {
 .jarallax > .jarallax-img {
   position: absolute;
   object-fit: cover;
-  font-family: "object-fit: cover;";
+  font-family: 'object-fit: cover;';
   top: 0;
   left: 0;
   width: 100%;
@@ -6513,13 +6507,12 @@ ul.top_menu > li a.btn_access:hover {
   height: 65px;
   top: -65px;
   left: 0;
-  background: url("../../public/assets/img/wave_black.svg");
+  background: url("../img/wave_black.svg");
   z-index: 99;
   animation: waves 20s linear infinite;
 }
-.wave:before,
-.wave:after {
-  content: "";
+.wave:before, .wave:after {
+  content: '';
   width: 100%;
   height: 65px;
   background: url("../img/wave_black.svg");
@@ -6543,8 +6536,7 @@ ul.top_menu > li a.btn_access:hover {
 .wave.black_2 {
   background: url("../img/wave_black_2.svg");
 }
-.wave.black_2:before,
-.wave.black_2:after {
+.wave.black_2:before, .wave.black_2:after {
   background: url("../img/wave_black_2.svg");
   position: absolute;
 }
@@ -6687,7 +6679,7 @@ ul.top_menu > li a.btn_access:hover {
     margin-bottom: 5px;
   }
 }
-.custom-search-input input[type="submit"] {
+.custom-search-input input[type='submit'] {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
@@ -6708,11 +6700,11 @@ ul.top_menu > li a.btn_access:hover {
   margin-right: -1px;
 }
 @media (max-width: 767px) {
-  .custom-search-input input[type="submit"] {
+  .custom-search-input input[type='submit'] {
     margin: 5px 0 0 0;
   }
 }
-.custom-search-input input[type="submit"]:hover {
+.custom-search-input input[type='submit']:hover {
   color: #222;
   background-color: var(--color-3);
 }
@@ -6758,7 +6750,7 @@ ul.top_menu > li a.btn_access:hover {
   color: var(--color-1);
 }
 .breadcrumbs ul li:after {
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   content: "\f285";
   font-size: 13px;
   font-size: 0.8125rem;
@@ -6770,7 +6762,7 @@ ul.top_menu > li a.btn_access:hover {
   font-weight: 500;
 }
 .breadcrumbs ul li:last-child:after {
-  content: "";
+  content: '';
   margin-right: 0;
 }
 
@@ -6786,8 +6778,7 @@ ul.top_menu > li a.btn_access:hover {
   background-color: var(--background-color-2);
 }
 .bg_gray.pattern {
-  background: var(--background-color-2) url(../img/pattern_2.svg) repeat center
-    center;
+  background: var(--background-color-2) url(../img/pattern_2.svg) repeat center center;
 }
 
 /*============================================================================================*/
@@ -6899,13 +6890,13 @@ ul.top_menu > li a.btn_access:hover {
 
 /*-------- 4.2 Carousel --------*/
 /**
-   * Owl Carousel v2.3.4
-   * Copyright 2013-2018 David Deutsch
-   * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
-   */
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
 /*
-   *  Owl Carousel - Core
-   */
+ *  Owl Carousel - Core
+ */
 .owl-carousel {
   display: none;
   width: 100%;
@@ -7022,13 +7013,13 @@ ul.top_menu > li a.btn_access:hover {
 }
 
 /*
-   *  Owl Carousel - Lazy Load Plugin
-   */
+ *  Owl Carousel - Lazy Load Plugin
+ */
 .owl-carousel .owl-item {
   /**
-      This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
-      calculation of the height of the owl-item that breaks page layouts
-     */
+    This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+    calculation of the height of the owl-item that breaks page layouts
+   */
 }
 
 .owl-carousel .owl-item .owl-lazy {
@@ -7046,13 +7037,13 @@ ul.top_menu > li a.btn_access:hover {
 }
 
 /**
-   * Owl Carousel v2.3.4
-   * Copyright 2013-2018 David Deutsch
-   * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
-   */
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
 /*
-   *  Default theme - Owl Carousel CSS File
-   */
+ *  Default theme - Owl Carousel CSS File
+ */
 .owl-theme .owl-nav {
   margin-top: 0;
   position: absolute;
@@ -7069,7 +7060,7 @@ ul.top_menu > li a.btn_access:hover {
   outline: none;
 }
 
-.owl-theme .owl-nav [class*="owl-"] {
+.owl-theme .owl-nav [class*='owl-'] {
   color: #222 !important;
   margin: 5px 0;
   padding: 4px 7px;
@@ -7077,8 +7068,8 @@ ul.top_menu > li a.btn_access:hover {
   cursor: pointer;
 }
 
-.owl-theme .owl-nav [class*="owl-"]:hover {
-  color: #fff;
+.owl-theme .owl-nav [class*='owl-']:hover {
+  color: #FFF;
   text-decoration: none;
 }
 
@@ -7128,11 +7119,11 @@ ul.top_menu > li a.btn_access:hover {
   background: transparent !important;
   display: block;
   -webkit-backface-visibility: visible;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
   border: 2px solid #ccc;
 }
 .owl-theme .owl-dots .owl-dot span::before {
-  content: "";
+  content: '';
   background-color: #ff0071 !important;
   display: block;
   border-radius: 50%;
@@ -7265,7 +7256,7 @@ ul.top_menu > li a.btn_access:hover {
   position: absolute;
   left: 0;
   top: 4px;
-  content: "";
+  content: '';
   background: url(../img/ethereum.svg) top left no-repeat;
   background-size: 14px 14px;
   width: 14px;
@@ -7290,8 +7281,7 @@ ul.top_menu > li a.btn_access:hover {
   font-size: 14px;
   font-size: 0.875rem;
 }
-.strip ul li a.wish_bt:hover,
-.strip ul li a.wish_bt.liked {
+.strip ul li a.wish_bt:hover, .strip ul li a.wish_bt.liked {
   color: var(--color-1);
 }
 
@@ -7347,7 +7337,7 @@ ul.top_menu > li a.btn_access:hover {
   margin: 0;
   color: var(--body-text-color);
   line-height: var(--line-height-none);
-  font-weight: 800;
+    font-weight: 800;
 }
 .author h6 span {
   color: var(--body-text-color) !important;
@@ -7434,7 +7424,7 @@ ul.top_menu > li a.btn_access:hover {
   position: absolute;
   left: -20px;
   top: -6px;
-  content: "";
+  content: '';
   background: url(../img/countdown_bg.svg) top left no-repeat;
   width: 27px;
   height: 30px;
@@ -7605,8 +7595,8 @@ a.wallet_connect:hover h3 {
 /*============================================================================================*/
 /**-- 5.1 scrollCue.js - ver.2.0.0 ---**/
 /**  ---------------
-       fadeIn
-  */
+     fadeIn
+*/
 [data-cue="fadeIn"],
 [data-cues="fadeIn"] > * {
   opacity: 0;
@@ -7621,8 +7611,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       slideInLeft
-  */
+     slideInLeft
+*/
 [data-cue="slideInLeft"],
 [data-cues="slideInLeft"] > * {
   opacity: 0;
@@ -7639,8 +7629,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       slideInRight
-  */
+     slideInRight
+*/
 [data-cue="slideInRight"],
 [data-cues="slideInRight"] > * {
   opacity: 0;
@@ -7657,8 +7647,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       slideInDown
-  */
+     slideInDown
+*/
 [data-cue="slideInDown"],
 [data-cues="slideInDown"] > * {
   opacity: 0;
@@ -7675,8 +7665,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       slideInUp
-  */
+     slideInUp
+*/
 [data-cue="slideInUp"],
 [data-cues="slideInUp"] > * {
   opacity: 0;
@@ -7693,8 +7683,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       zoomIn
-  */
+     zoomIn
+*/
 [data-cue="zoomIn"],
 [data-cues="zoomIn"] > * {
   opacity: 0;
@@ -7711,8 +7701,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       zoomOut
-  */
+     zoomOut
+*/
 [data-cue="zoomOut"],
 [data-cues="zoomOut"] > * {
   opacity: 0;
@@ -7729,8 +7719,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       rotateIn
-  */
+     rotateIn
+*/
 [data-cue="rotateIn"],
 [data-cues="rotateIn"] > * {
   opacity: 0;
@@ -7747,8 +7737,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       bounceIn
-  */
+     bounceIn
+*/
 [data-cue="bounceIn"],
 [data-cues="bounceIn"] > * {
   opacity: 0;
@@ -7777,8 +7767,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       bounceInLeft
-  */
+     bounceInLeft
+*/
 [data-cue="bounceInLeft"],
 [data-cues="bounceInLeft"] > * {
   opacity: 0;
@@ -7786,10 +7776,10 @@ a.wallet_connect:hover h3 {
 
 @keyframes bounceInLeft {
   from,
-  60%,
-  75%,
-  90%,
-  to {
+    60%,
+    75%,
+    90%,
+    to {
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
@@ -7812,8 +7802,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       bounceInRight
-  */
+     bounceInRight
+*/
 [data-cue="bounceInRight"],
 [data-cues="bounceInRight"] > * {
   opacity: 0;
@@ -7821,10 +7811,10 @@ a.wallet_connect:hover h3 {
 
 @keyframes bounceInRight {
   from,
-  60%,
-  75%,
-  90%,
-  to {
+    60%,
+    75%,
+    90%,
+    to {
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   from {
@@ -7847,8 +7837,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       bounceInDown
-  */
+     bounceInDown
+*/
 [data-cue="bounceInDown"],
 [data-cues="bounceInDown"] > * {
   opacity: 0;
@@ -7856,10 +7846,10 @@ a.wallet_connect:hover h3 {
 
 @keyframes bounceInDown {
   from,
-  60%,
-  75%,
-  90%,
-  to {
+    60%,
+    75%,
+    90%,
+    to {
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
@@ -7882,8 +7872,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       bounceInUp
-  */
+     bounceInUp
+*/
 [data-cue="bounceInUp"],
 [data-cues="bounceInUp"] > * {
   opacity: 0;
@@ -7891,10 +7881,10 @@ a.wallet_connect:hover h3 {
 
 @keyframes bounceInUp {
   from,
-  60%,
-  75%,
-  90%,
-  to {
+    60%,
+    75%,
+    90%,
+    to {
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   from {
@@ -7917,8 +7907,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       flipInX
-  */
+     flipInX
+*/
 [data-cue="flipInX"],
 [data-cues="flipInX"] > * {
   opacity: 0;
@@ -7948,8 +7938,8 @@ a.wallet_connect:hover h3 {
   }
 }
 /**  ---------------
-       flipInY
-  */
+     flipInY
+*/
 [data-cue="flipInY"],
 [data-cues="flipInY"] > * {
   opacity: 0;
@@ -8146,7 +8136,7 @@ a.wallet_connect:hover h3 {
 }
 @media (max-width: 767px) {
   .tabs_detail .tab-content .card-header a:after {
-    font-family: "bootstrap-icons";
+    font-family: 'bootstrap-icons';
     width: 20px;
     display: block;
     float: right;
@@ -8254,7 +8244,7 @@ ul.bullets li span {
 }
 
 .rotate-x {
-  animation-duration: 0.5s;
+  animation-duration: .5s;
   animation-name: rotate-x;
 }
 
@@ -8426,19 +8416,19 @@ ul.bullets li span {
 /* ------ 5.4 Forms styles ------ */
 .nice-select {
   -webkit-tap-highlight-color: transparent;
-  background-color: #211d23;
-  border-radius: 2px;
-  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid var(--border-color-1);
   box-sizing: border-box;
   clear: both;
   cursor: pointer;
   display: block;
   float: left;
   font-family: inherit;
-  font-size: 14px !important;
-  font-weight: 500;
-  height: 31px !important;
-  line-height: 30px !important;
+  font-size: 14px;
+  font-weight: normal;
+  height: 42px;
+  line-height: 40px;
   outline: none;
   padding-left: 18px;
   padding-right: 33px;
@@ -8448,17 +8438,14 @@ ul.bullets li span {
   user-select: none;
   white-space: nowrap;
   width: auto;
-  color: #fff;
 }
-.nice-select:active,
-.nice-select.open,
-.nice-select:focus {
+.nice-select:active, .nice-select.open, .nice-select:focus {
   border-color: var(--border-color-1);
 }
 .nice-select:after {
   border-bottom: 2px solid #999;
   border-right: 2px solid #999;
-  content: "";
+  content: '';
   display: block;
   height: 8px;
   margin-top: -4px;
@@ -8547,9 +8534,7 @@ ul.bullets li span {
   text-align: left;
   transition: all 0.2s;
 }
-.nice-select .option:hover,
-.nice-select .option.focus,
-.nice-select .option.selected.focus {
+.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
   color: var(--heading-color);
 }
 .nice-select .option.selected {
@@ -8858,7 +8843,7 @@ footer .links ul li a:hover:after {
   color: var(--color-3);
 }
 footer .links ul li a:after {
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   content: "\f135";
   position: relative;
   margin-left: 5px;
@@ -8896,7 +8881,7 @@ footer .links ul li a:after {
 #newsletter h6 {
   margin: 15px 0 15px 0;
 }
-#newsletter input[type="email"] {
+#newsletter input[type='email'] {
   border: 0;
   height: 40px;
   -webkit-border-radius: 3px 0 0 3px;
@@ -8907,11 +8892,11 @@ footer .links ul li a:after {
   background-color: #f3f3f3;
   background-color: rgba(255, 255, 255, 0.05);
 }
-#newsletter input[type="email"]:focus {
+#newsletter input[type='email']:focus {
   border: 0;
   box-shadow: none;
 }
-#newsletter button[type="submit"] {
+#newsletter button[type='submit'] {
   position: absolute;
   right: 0;
   color: #fff;
@@ -8935,7 +8920,7 @@ footer .links ul li a:after {
   transition: all 0.3s ease-in-out;
   outline: none;
 }
-#newsletter button[type="submit"]:hover {
+#newsletter button[type='submit']:hover {
   background-color: var(--color-3);
 }
 
@@ -9042,7 +9027,7 @@ ul.additional_links li:after {
   cursor: pointer;
 }
 .styled-select:after {
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   color: var(--heading-color);
   position: absolute;
   right: 10px;
@@ -9119,7 +9104,7 @@ ul.additional_links li:after {
 }
 
 .mfp-container:before {
-  content: "";
+  content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -9299,7 +9284,7 @@ button.mfp-close {
 
 .mfp-arrow.mfp-arrow-left,
 .mfp-arrow.mfp-arrow-right {
-  font-family: "ElegantIcons";
+  font-family: 'ElegantIcons';
   font-size: 38px;
   line-height: 1;
 }
@@ -9422,7 +9407,7 @@ img.mfp-img {
 
 /* The shadow behind the image */
 .mfp-figure:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 40px;
@@ -9506,8 +9491,7 @@ img.mfp-img {
 }
 
 /* Media Queries for Magnific Popup */
-@media screen and (max-width: 800px) and (orientation: landscape),
-  screen and (max-height: 300px) {
+@media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
   .mfp-img-mobile .mfp-image-holder {
     padding-left: 0;
     padding-right: 0;
@@ -9593,7 +9577,7 @@ img.mfp-img {
 }
 
 .mfp-wrap ~ * {
-  transition: filter 0.25s ease;
+  transition: filter .25s ease;
   -webkit-filter: blur(3px);
   -moz-filter: blur(3px);
   -o-filter: blur(3px);
@@ -9756,7 +9740,7 @@ img.mfp-img {
 }
 #modal-dialog .mfp-close:before {
   font-size: 24px;
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   content: "\f62a";
 }
 #modal-dialog .mfp-close:hover {
@@ -9834,7 +9818,7 @@ img.mfp-img {
   display: inline-block;
   padding: 8px 16px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: background-color .3s;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -9885,7 +9869,7 @@ img.mfp-img {
   transform: scale(1);
 }
 #toTop:after {
-  font-family: "bootstrap-icons";
+  font-family: 'bootstrap-icons';
   content: "\f286";
   position: relative;
   display: block;
@@ -9911,8 +9895,7 @@ img.mfp-img {
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-.my-toggle:hover,
-.my-toggle:focus {
+.my-toggle:hover, .my-toggle:focus {
   color: var(--heading-color);
   outline: transparent;
 }
@@ -10103,15 +10086,13 @@ img.mfp-img {
 .light-theme .wave {
   background: url("../img/wave_gray.svg");
 }
-.light-theme .wave:before,
-.light-theme .wave:after {
+.light-theme .wave:before, .light-theme .wave:after {
   background: url("../img/wave_gray.svg");
 }
 .light-theme .wave.black_2 {
   background: url("../img/wave_white.svg");
 }
-.light-theme .wave.black_2:before,
-.light-theme .wave.black_2:after {
+.light-theme .wave.black_2:before, .light-theme .wave.black_2:after {
   background: url("../img/wave_white.svg");
   position: absolute;
 }
@@ -10148,7 +10129,7 @@ img.mfp-img {
 .light-theme .switch-field label {
   background-color: #fff !important;
 }
-.light-theme #newsletter input[type="email"] {
+.light-theme #newsletter input[type='email'] {
   background-color: rgba(0, 0, 0, 0.04);
 }
 .light-theme footer {
@@ -10202,7 +10183,7 @@ img.mfp-img {
   .light-theme .popular .btn_price {
     color: #fff;
   }
-  .light-theme .pricing-features li:nth-of-type(2n + 1) {
+  .light-theme .pricing-features li:nth-of-type(2n+1) {
     background-color: rgba(0, 0, 0, 0.03);
   }
 }
@@ -10246,4 +10227,8 @@ img.mfp-img {
 }
 .dark-theme .popup_content .wrapper .light {
   display: none;
+}
+
+.bg-primary {
+  background-color: #FF0071;
 }
